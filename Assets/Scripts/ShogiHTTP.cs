@@ -47,6 +47,6 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("accessor test: " + LoginManager.Instance.playerName);
+//		Debug.Log ("accessor test: " + LoginManager.Instance.playerName);
 	}
 }

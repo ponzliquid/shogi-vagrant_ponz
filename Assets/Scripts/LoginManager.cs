@@ -5,19 +5,18 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using MiniJSON;
 
-public class LoginManager : SingletonMonoBehaviour<LoginManager> {
+public class LoginManager : MonoBehaviour {
 
-	public string playerName{get; private set;}
-	public string roomNumber{get; private set;}
-	public int user_id{get; private set;}
-	public int play_id{ get; private set;}
-
-	private int buffRoomNumber;
-
+	private string playerName = null;
+	private string roomNumber = null;
+	private string userID = null;
+	private string playID = null;
 	private string loginURL, logoutURL;
 	private const string LOCAL_HOST_URL = "http://192.168.33.11:3000/";
+//	private const string REMOTE_HOST_URL = "http://***";
 	private const string localloginURL = LOCAL_HOST_URL + "users/login";
 	private const string locallogoutURL = LOCAL_HOST_URL + "users/logout";
+	private Dictionary<string,object> download;
 
 	public void SetPlayerName(){
 		Text name = GameObject.Find ("TxtPlayerName").GetComponent<Text>();
@@ -26,7 +25,7 @@ public class LoginManager : SingletonMonoBehaviour<LoginManager> {
 
 	public void SetRoomNumber(){
 		Text roomnum = GameObject.Find ("TxtRoomNumber").GetComponent<Text>();
-
+		roomNumber = roomnum.text;
 	}
 
 	public void SetIPAddress(){
@@ -35,56 +34,64 @@ public class LoginManager : SingletonMonoBehaviour<LoginManager> {
 	}
 
 	public IEnumerator LoginToServer(){
-		WWW www = ShogiHTTP.Instance.Login (loginURL, playerName, roomNumber);
-		if (www.error == null) {
-			Debug.Log("WWW Ok!");
-		} else {
-			Debug.Log("WWW Error:");
+		if(!UserInfo.Instance.IsUserDataNull()){
+			Debug.Log("CAUTION: Already Logged in.");
+			yield break;
 		}
+		else if(playerName == null){
+			Debug.Log("CAUTION: Null Name.");
+			yield break;
+		}
+		else if(roomNumber == null){
+			Debug.Log("CAUTION: Null RoomNumber.");
+			yield break;
+		}
+		WWW www = ShogiHTTP.Instance.Login (loginURL, playerName, roomNumber);
 		yield return www;
-		JsonParser (www.text);
+		download = Json.Deserialize (www.text) as Dictionary<string,object>;
+		yield return www.text;
+		UserInfo.Instance.SetUserData (download);
 	}
 
 	// 退室デバッグ用、後で消して
-	public void LogoutFromServer(){
+	public IEnumerator LogoutFromServer(){
+		if(UserInfo.Instance.IsUserDataNull()){
+			Debug.Log("CAUTION: Already Logged out.");
+			yield break;
+		}
+		userID = UserInfo.Instance.GetUserID ().ToString();
+		Debug.Log ("userID from infodata: " + userID);
+		playID = UserInfo.Instance.GetPlayID ().ToString();
 		WWW www;
-		www = ShogiHTTP.Instance.Logout (logoutURL, playerName, roomNumber);
-		if (www.error == null) {
-			Debug.Log("WWW Ok!");
-		} else {
-			Debug.Log("WWW Error:");
-		}
-	}
-
-	public void JsonParser(string wwwJson){
-		var json = Json.Deserialize (wwwJson) as IDictionary;
-		Debug.Log ("json[name]: " + json["user_id"]);
-	}
-
-	// デバッグ用、後で消して
-	private void TestInit(){
-		loginURL = localloginURL;
-		logoutURL = locallogoutURL;
-		roomNumber = "1";
-		playerName = "tester";
-	}
-
-	public void Awake()
-	{
-		if(this != Instance){
-			Destroy(this);
-			return;
-		}
-		DontDestroyOnLoad(this.gameObject);
+		www = ShogiHTTP.Instance.Logout (logoutURL, playID, userID);
+		Debug.Log ("終了なう");
+		yield return www;
+		UserInfo.Instance.InitUserData ();
 	}
 	
-	// Use this for initialization
+//	public Dictionary<string,object> JsonParser(string wwwDownloaded){
+//		download = Json.Deserialize (wwwDownloaded) as Dictionary<string,object>;
+////		Debug.Log ("json[\"user_id\"]: " + download["user_id"]);
+//		return download;
+//	}
+	
+	public IEnumerator OnApplicationQuit(){
+		Debug.Log ("終了判定");
+		while (!UserInfo.Instance.IsUserDataNull ()) {
+			Debug.Log ("スタコル");
+			yield return StartCoroutine (LogoutFromServer ());
+		}
+		Debug.Log ("Auto Logout");
+	}
+
+	public void Awake(){
+	}
+	
 	void Start () {
-		TestInit ();
+		loginURL = localloginURL;
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
+	void Update () {
+//		Debug.Log ("json[user_id]: " + download["user_id"]);
 	}
 }
