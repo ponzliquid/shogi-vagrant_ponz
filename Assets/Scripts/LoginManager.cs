@@ -6,46 +6,21 @@ using UnityEngine.EventSystems;
 using MiniJSON;
 
 public class LoginManager : MonoBehaviour {
-
-	private string playerName = null;
-	private string roomNumber = null;
+	
 	private string userID = null;
 	private string playID = null;
-	private string loginURL, logoutURL;
+
 	private const string LOCAL_HOST_URL = "http://192.168.33.11:3000/";
 //	private const string REMOTE_HOST_URL = "http://***";
 	private const string localloginURL = LOCAL_HOST_URL + "users/login";
 	private const string locallogoutURL = LOCAL_HOST_URL + "users/logout";
 	private Dictionary<string,object> download;
 
-	public void SetPlayerName(){
-		Text name = GameObject.Find ("TxtPlayerName").GetComponent<Text>();
-		playerName = name.text;
-	}
+	public IEnumerator LoginToServer(string playerName, string roomNumber){
 
-	public void SetRoomNumber(){
-		Text roomnum = GameObject.Find ("TxtRoomNumber").GetComponent<Text>();
-		roomNumber = roomnum.text;
-	}
+		Debug.Log ("Logging in...");
+		string loginURL = localloginURL;
 
-	public void SetIPAddress(){
-		Text addr = GameObject.Find ("TxtIPAddr").GetComponent<Text>();
-//		loginURL = addr.text;
-	}
-
-	public IEnumerator LoginToServer(){
-		if(!UserInfo.Instance.IsUserDataNull()){
-			Debug.Log("CAUTION: Already Logged in.");
-			yield break;
-		}
-		else if(playerName == null){
-			Debug.Log("CAUTION: Null Name.");
-			yield break;
-		}
-		else if(roomNumber == null){
-			Debug.Log("CAUTION: Null RoomNumber.");
-			yield break;
-		}
 		WWW www = ShogiHTTP.Instance.Login (loginURL, playerName, roomNumber);
 		yield return www;
 		download = Json.Deserialize (www.text) as Dictionary<string,object>;
@@ -54,14 +29,13 @@ public class LoginManager : MonoBehaviour {
 	}
 
 	// 退室デバッグ用、後で消して
-	public IEnumerator LogoutFromServer(){
-		if(UserInfo.Instance.IsUserDataNull()){
-			Debug.Log("CAUTION: Already Logged out.");
-			yield break;
-		}
+	public IEnumerator LogoutFromServer(string playID, string userID){
+
+		string logoutURL = locallogoutURL;
+		
 		userID = UserInfo.Instance.GetUserID ().ToString();
-		Debug.Log ("userID from infodata: " + userID);
 		playID = UserInfo.Instance.GetPlayID ().ToString();
+		//		Debug.Log ("userID from infodata: " + userID);
 		WWW www;
 		www = ShogiHTTP.Instance.Logout (logoutURL, playID, userID);
 		Debug.Log ("終了なう");
@@ -76,10 +50,10 @@ public class LoginManager : MonoBehaviour {
 //	}
 	
 	public IEnumerator OnApplicationQuit(){
-		Debug.Log ("終了判定");
 		while (!UserInfo.Instance.IsUserDataNull ()) {
 			Debug.Log ("スタコル");
-			yield return StartCoroutine (LogoutFromServer ());
+			yield return StartCoroutine (
+				LogoutFromServer (UserInfo.Instance.GetPlayID().ToString(), UserInfo.Instance.GetUserID().ToString()));
 		}
 		Debug.Log ("Auto Logout");
 	}
@@ -88,7 +62,6 @@ public class LoginManager : MonoBehaviour {
 	}
 	
 	void Start () {
-		loginURL = localloginURL;
 	}
 
 	void Update () {
