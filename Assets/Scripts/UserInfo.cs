@@ -8,9 +8,15 @@ public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 	public string playerName { get; private set;}
 	public string roomNumber { get; private set;}
 	private Dictionary<string,object> userData;
+	private Dictionary<string,object> roomState;
 
 	public void SetLoggingURL(string url){
 		urlLogin = url;
+	}
+
+	public void SetState(Dictionary<string, object> state){
+		roomState = state;
+		Debug.Log ("state: " + roomState["state"]);
 	}
 
 	public void SetUserData(Dictionary<string,object> data){
@@ -39,6 +45,14 @@ public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 
 	public string GetRole(){
 		return userData ["role"].ToString ();
+	}
+
+	public string GetState(){
+		if (roomState == null) {
+			return null;
+		} else {
+			return roomState ["state"].ToString ();
+		}
 	}
 
 	void Awake(){

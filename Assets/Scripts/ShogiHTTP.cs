@@ -22,6 +22,12 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		return www;
 	}
 
+	public WWW State(string url){
+		WWW www = new WWW (url);
+		StartCoroutine (WaitForRequest (www));
+		return www;
+	}
+
 	private IEnumerator WaitForRequest(WWW www) {
 		yield return www;
 		// check for errors

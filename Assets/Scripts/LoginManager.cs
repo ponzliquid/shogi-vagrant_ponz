@@ -46,6 +46,17 @@ public class LoginManager : MonoBehaviour {
 		textAlert.text = "Successful logging in to " + loginURL +".";
 	}
 
+	public IEnumerator GetRoomState(){
+		string url = loggingURL + "plays/" + UserInfo.Instance.GetPlayID().ToString() + "/state";
+		Debug.Log ("access state URL : " + url);
+		WWW www = ShogiHTTP.Instance.State(url);
+		Debug.Log ("Getting Game State...");
+		yield return www;
+		download = Json.Deserialize (www.text) as Dictionary<string,object>;
+		yield return www.text;
+		UserInfo.Instance.SetState (download);
+	}
+
 	public IEnumerator LogoutFromServer(string playID, string userID){
 
 		string logoutURL = loggingURL + "users/login";
@@ -58,12 +69,6 @@ public class LoginManager : MonoBehaviour {
 		yield return www;
 		UserInfo.Instance.InitUserData ();
 	}
-	
-//	public Dictionary<string,object> JsonParser(string wwwDownloaded){
-//		download = Json.Deserialize (wwwDownloaded) as Dictionary<string,object>;
-////		Debug.Log ("json[\"user_id\"]: " + download["user_id"]);
-//		return download;
-//	}
 	
 	public IEnumerator OnApplicationQuit(){
 //		// 自動ログアウト処理

@@ -10,8 +10,9 @@ public class LoginUI : MonoBehaviour {
 	private string playerName = null;
 	private string roomNumber = null;
 	private string IPaddress = null;
-	private GameObject btnLogin, btnLogout;
-	private Text textAlert;
+	private GameObject btnLogin, btnLogout, textStateObj;
+	private Text textAlert, textState;
+	private string roomState;
 	
 	public void SetPlayerName(){
 		Text name = GameObject.Find ("TxtPlayerName").GetComponent<Text>();
@@ -62,21 +63,22 @@ public class LoginUI : MonoBehaviour {
 		while (UserInfo.Instance.IsUserDataNull()) {
 			yield return new WaitForEndOfFrame();
 		}
-		btnLogin.SetActive (true);
+//		btnLogin.SetActive (true);
 
-		Application.LoadLevel("Room");
+		StartCoroutine (loginManager.GetRoomState());
+		roomState = UserInfo.Instance.GetState ();
+		while(roomState == "" || roomState == null){
+			Debug.Log("state waiting but null");
+			yield return null;
+		}
+		while(roomState == "waiting"){
+			Debug.Log("state waiting");
+			textStateObj.SetActive (true);
+			yield return new WaitForSeconds(1);
+			textStateObj.SetActive (false);
+		}
+		//Application.LoadLevel("Room");
 	}
-
-//	public void LogoutFromServerUI(){
-//		if(UserInfo.Instance.IsUserDataNull()){
-//			Debug.Log("CAUTION: Already Logged out.");
-//			return;
-//		}
-//		GameObject.Find ("BtnLogout").SetActive (false);
-//		StartCoroutine(loginManager.LogoutFromServer (
-//			UserInfo.Instance.GetPlayID().ToString(), UserInfo.Instance.GetUserID().ToString()));
-//		LoggedOutFromServerUI ();
-//	}
 
 	private void LoggedOutFromServerUI(){
 		while (!UserInfo.Instance.IsUserDataNull());
@@ -89,6 +91,10 @@ public class LoginUI : MonoBehaviour {
 		loginManager = GameObject.Find("LoginManager").GetComponent<LoginManager>();
 		textAlert = GameObject.Find ("MsgText").GetComponent<Text> ();
 		textAlert.text = "Fill text above.";
+		textStateObj = GameObject.Find ("TextState");
+		textState = GameObject.Find ("TextState").GetComponent<Text> ();
+		textState.text = "Waiting...";
+		textStateObj.SetActive (false);
 	}
 	
 	// Update is called once per frame
