@@ -32,6 +32,10 @@ public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 		return int.Parse (userData ["play_id"].ToString ());
 	}
 
+	public string GetRole(){
+		return userData ["role"].ToString ();
+	}
+
 	void Awake(){
 		if(this != Instance){
 			Destroy(this);

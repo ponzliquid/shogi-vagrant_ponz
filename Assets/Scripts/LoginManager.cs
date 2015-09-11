@@ -9,36 +9,50 @@ public class LoginManager : MonoBehaviour {
 	
 	private string userID = null;
 	private string playID = null;
-
-	private const string LOCAL_HOST_URL = "http://192.168.33.11:3000/";
-//	private const string REMOTE_HOST_URL = "http://***";
-	private const string localloginURL = LOCAL_HOST_URL + "users/login";
-	private const string locallogoutURL = LOCAL_HOST_URL + "users/logout";
+	private Text textAlert;
+	private const string LOCAL_ACCESS_URL = "http://192.168.33.11:3000/";
+	private string loggingURL;
 	private Dictionary<string,object> download;
 
 	public IEnumerator LoginToServer(string playerName, string roomNumber){
 
-		Debug.Log ("Logging in...");
-		string loginURL = localloginURL;
+		loggingURL = LOCAL_ACCESS_URL;
+		string loginURL = LOCAL_ACCESS_URL + "users/login";
 
 		WWW www = ShogiHTTP.Instance.Login (loginURL, playerName, roomNumber);
+		Debug.Log ("Logging in by local address...");
+		textAlert.text = "Logging in to " + loginURL + " ...";
 		yield return www;
 		download = Json.Deserialize (www.text) as Dictionary<string,object>;
 		yield return www.text;
 		UserInfo.Instance.SetUserData (download);
+		textAlert.text = "Successful logging in to " + loginURL +".";
 	}
 
-	// 退室デバッグ用、後で消して
+	public IEnumerator LoginToServer(string loginURL, string playerName, string roomNumber){
+
+		loggingURL = loginURL;
+		loginURL = loginURL + "users/login";
+		
+		WWW www = ShogiHTTP.Instance.Login (loginURL, playerName, roomNumber);
+		Debug.Log ("Logging in by manual address...");
+		textAlert.text = "Logging in to " + loginURL + " ...";
+		yield return www;
+		download = Json.Deserialize (www.text) as Dictionary<string,object>;
+		yield return www.text;
+		UserInfo.Instance.SetUserData (download);
+		textAlert.text = "Successful logging in to " + loginURL +".";
+	}
+
 	public IEnumerator LogoutFromServer(string playID, string userID){
 
-		string logoutURL = locallogoutURL;
+		string logoutURL = loggingURL + "users/login";
 		
 		userID = UserInfo.Instance.GetUserID ().ToString();
 		playID = UserInfo.Instance.GetPlayID ().ToString();
-		//		Debug.Log ("userID from infodata: " + userID);
 		WWW www;
 		www = ShogiHTTP.Instance.Logout (logoutURL, playID, userID);
-		Debug.Log ("終了なう");
+		Debug.Log ("Logging out...");
 		yield return www;
 		UserInfo.Instance.InitUserData ();
 	}
@@ -50,21 +64,22 @@ public class LoginManager : MonoBehaviour {
 //	}
 	
 	public IEnumerator OnApplicationQuit(){
-		while (!UserInfo.Instance.IsUserDataNull ()) {
-			Debug.Log ("スタコル");
-			yield return StartCoroutine (
-				LogoutFromServer (UserInfo.Instance.GetPlayID().ToString(), UserInfo.Instance.GetUserID().ToString()));
-		}
-		Debug.Log ("Auto Logout");
+//		// 自動ログアウト処理
+//		while (!UserInfo.Instance.IsUserDataNull ()) {
+//			yield return StartCoroutine (
+//				LogoutFromServer (UserInfo.Instance.GetPlayID().ToString(), UserInfo.Instance.GetUserID().ToString()));
+//		}
+//		Debug.Log ("Auto Logout");
+		yield return null;
 	}
 
-	public void Awake(){
+	void Awake(){
 	}
 	
 	void Start () {
+		textAlert = GameObject.Find("MsgText").GetComponent<Text>();
 	}
 
 	void Update () {
-//		Debug.Log ("json[user_id]: " + download["user_id"]);
 	}
 }
