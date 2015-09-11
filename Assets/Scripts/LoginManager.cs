@@ -26,6 +26,7 @@ public class LoginManager : MonoBehaviour {
 		download = Json.Deserialize (www.text) as Dictionary<string,object>;
 		yield return www.text;
 		UserInfo.Instance.SetUserData (download);
+		UserInfo.Instance.SetLoggingURL (loggingURL);
 		textAlert.text = "Successful logging in to " + loginURL +".";
 	}
 
@@ -41,6 +42,7 @@ public class LoginManager : MonoBehaviour {
 		download = Json.Deserialize (www.text) as Dictionary<string,object>;
 		yield return www.text;
 		UserInfo.Instance.SetUserData (download);
+		UserInfo.Instance.SetLoggingURL (loggingURL);
 		textAlert.text = "Successful logging in to " + loginURL +".";
 	}
 

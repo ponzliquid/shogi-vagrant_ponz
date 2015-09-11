@@ -4,9 +4,14 @@ using System.Collections.Generic;
 
 public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 
+	public string urlLogin { get; private set;}
 	public string playerName { get; private set;}
 	public string roomNumber { get; private set;}
 	private Dictionary<string,object> userData;
+
+	public void SetLoggingURL(string url){
+		urlLogin = url;
+	}
 
 	public void SetUserData(Dictionary<string,object> data){
 		userData = data;

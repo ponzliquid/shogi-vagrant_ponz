@@ -1,0 +1,46 @@
+Initialize engine version: 5.1.3f1 (b0a23b31c3d8)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 640 (ID=0xfc0)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.039 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initialized touch support.
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\2015-0911-1102_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: db4 -> priority: 1 
+  Thread -> id: 146c -> priority: 1 
+called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"user_id":8,"play_id":4,"state":"playing","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.003443 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 228.
+Total: 0.412659 ms (FindLiveObjects: 0.035922 ms CreateObjectMapping: 0.016602 ms MarkObjects: 0.340512 ms  DeleteObjects: 0.018716 ms)
+
