@@ -71,13 +71,14 @@ public class LoginUI : MonoBehaviour {
 			Debug.Log("state waiting but null");
 			yield return null;
 		}
+		StopCoroutine (loginManager.GetRoomState());
 		while(roomState == "waiting"){
 			Debug.Log("state waiting");
 			textStateObj.SetActive (true);
 			yield return new WaitForSeconds(1);
 			textStateObj.SetActive (false);
 		}
-		//Application.LoadLevel("Room");
+		Application.LoadLevel("Room");
 	}
 
 	private void LoggedOutFromServerUI(){

@@ -16,7 +16,6 @@ public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 
 	public void SetState(Dictionary<string, object> state){
 		roomState = state;
-		Debug.Log ("state: " + roomState["state"]);
 	}
 
 	public void SetUserData(Dictionary<string,object> data){
