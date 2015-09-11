@@ -53,14 +53,14 @@ public class LoginManager : MonoBehaviour {
 		Debug.Log ("Getting Game State...");
 		yield return www;
 		download = Json.Deserialize (www.text) as Dictionary<string,object>;
-		yield return www.text;
-		if (download ["state"] == "waiting") {
-			UserInfo.Instance.SetState (download);
-			yield return StartCoroutine(GetRoomState());
-		} else {
-			UserInfo.Instance.SetState (download);
-			yield break;
-		}
+		UserInfo.Instance.SetState (download);
+//		if (download ["state"] == "waiting") {
+//			UserInfo.Instance.SetState (download);
+//			yield return StartCoroutine(GetRoomState());
+//		} else {
+//			UserInfo.Instance.SetState (download);
+//			yield break;
+//		}
 	}
 
 	public IEnumerator LogoutFromServer(string playID, string userID){

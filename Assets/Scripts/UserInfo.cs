@@ -8,7 +8,7 @@ public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 	public string playerName { get; private set;}
 	public string roomNumber { get; private set;}
 	private Dictionary<string,object> userData;
-	private Dictionary<string,object> roomState;
+	private Dictionary<string,object> roomState = null;
 
 	public void SetLoggingURL(string url){
 		urlLogin = url;

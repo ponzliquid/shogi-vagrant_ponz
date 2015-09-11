@@ -64,20 +64,38 @@ public class LoginUI : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 //		btnLogin.SetActive (true);
+		Debug.Log ("ready to get state");
 
-		StartCoroutine (loginManager.GetRoomState());
-		roomState = UserInfo.Instance.GetState ();
-		while(roomState == "" || roomState == null){
-			Debug.Log("state waiting but null");
-			yield return null;
+		while(true){
+			roomState = UserInfo.Instance.GetState ();
+			if(roomState == "" || roomState == null){
+				yield return StartCoroutine (loginManager.GetRoomState());
+				Debug.Log("state waiting but null");
+				continue;
+			}
+			else if(roomState == "waiting"){
+				yield return StartCoroutine (loginManager.GetRoomState());
+				Debug.Log("state waiting");
+				continue;
+			}
+			else{
+				break;
+			}
 		}
-		StopCoroutine (loginManager.GetRoomState());
-		while(roomState == "waiting"){
-			Debug.Log("state waiting");
-			textStateObj.SetActive (true);
-			yield return new WaitForSeconds(1);
-			textStateObj.SetActive (false);
-		}
+
+//		roomState = UserInfo.Instance.GetState ();
+//		StartCoroutine (loginManager.GetRoomState());
+//		while(roomState == "" || roomState == null){
+//			Debug.Log("state waiting but null");
+//			yield return null;
+//		}
+//		StopCoroutine (loginManager.GetRoomState());
+//		while(roomState == "waiting"){
+//			Debug.Log("state waiting");
+//			textStateObj.SetActive (true);
+//			yield return new WaitForSeconds(1);
+//			textStateObj.SetActive (false);
+//		}
 		Application.LoadLevel("Room");
 	}
 

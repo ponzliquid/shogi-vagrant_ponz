@@ -1,0 +1,102 @@
+Initialize engine version: 5.1.3f1 (b0a23b31c3d8)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 640 (ID=0xfc0)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.041 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initialized touch support.
+Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\1334_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 720 -> priority: 1 
+  Thread -> id: 1a24 -> priority: 1 
+called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"user_id":4,"play_id":2,"state":"playing","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+ready to get state
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+access state URL : http://192.168.33.11:3000/plays/2/state
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Getting Game State...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"state":"playing"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+state waiting but null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.451507 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 231.
+Total: 0.234554 ms (FindLiveObjects: 0.019923 ms CreateObjectMapping: 0.010263 ms MarkObjects: 0.196519 ms  DeleteObjects: 0.007546 ms)
+
+Logging out...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: ["true"]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.147417 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 292.
+Total: 0.650233 ms (FindLiveObjects: 0.045582 ms CreateObjectMapping: 0.025659 ms MarkObjects: 0.555747 ms  DeleteObjects: 0.022036 ms)
+
+called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"user_id":2,"play_id":1,"state":"playing","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+ready to get state
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.543974 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 231.
+Total: 0.233045 ms (FindLiveObjects: 0.018716 ms CreateObjectMapping: 0.007848 ms MarkObjects: 0.197424 ms  DeleteObjects: 0.008452 ms)
+
