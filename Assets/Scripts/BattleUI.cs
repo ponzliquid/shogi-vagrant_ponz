@@ -25,7 +25,23 @@ public class BattleUI : MonoBehaviour {
 		Application.LoadLevel ("Lobby");
 	}
 
+	void Hoge(){
+//		battleManager.GetPlayerInfoFromServer ();
+		ShogiHTTP.Instance.Player (UserInfo.Instance.urlLogging,
+		                           (Dictionary<string, Dictionary<string, object>> dicPlayerInfo) => {
+			Debug.Log("dicPlayerInfo[\"first_player\"] " + dicPlayerInfo["first_player"]);
+			//			BattleInfo.Instance.dataPlayerInfo = dicPlayerInfo;
+			BattleInfo.Instance.SetPlayerInfo(dicPlayerInfo);
+			Debug.Log ("after callback: " + dicPlayerInfo["first_player"].ToString());
+			foreach(object opponentinfo in dicPlayerInfo.Values){
+				Debug.Log("opponentinfo.ToString(): " + opponentinfo.ToString());
+				textAudienceInfoText.text = opponentinfo.ToString();
+			}
 
+		});
+//		while (BattleInfo.Instance.IsPlayerInfoNull());
+
+	}
 
 	void Start () {
 		textPlayerUserID = GameObject.Find ("TextPlayerUserID").GetComponent<Text> ();
@@ -39,14 +55,7 @@ public class BattleUI : MonoBehaviour {
 		textPlayerRole.text = "YourRole: " + UserInfo.Instance.GetUserRole();
 
 		textAudienceInfoText = GameObject.Find ("AudienceInfoText").GetComponent<Text> ();
-
-		// TODO まだShogiHTTPには完全なURLを送っている
-		Dictionary<string, object> dicPlayerInfo = ShogiHTTP.Instance.Player (UserInfo.Instance.urlLogging);
-		foreach(object opponentinfo in dicPlayerInfo.Values){
-			Debug.Log("opponentinfo.ToString(): " + opponentinfo.ToString());
-//			textAudienceInfoText.text = opponentinfo.ToString();
-		}
-		 
+		Hoge ();
 	}
 
 	void Update () {

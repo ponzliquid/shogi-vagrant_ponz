@@ -17,7 +17,17 @@ public class BattleManager : MonoBehaviour {
 		UserInfo.Instance.InitUserData ();
 	}
 
-//	private Dictionary<string, object> GetPlayerInfoFromServer(string url){
-//		
+//	public void GetPlayerInfoFromServer(){
+//		// TODO まだShogiHTTPには完全なURLを送っている
+//		ShogiHTTP.Instance.Player (UserInfo.Instance.urlLogging,
+//		                                           (Dictionary<string, object> dicPlayerInfo) => {
+//			Debug.Log("dicPlayerInfo[\"first_player\"] " + dicPlayerInfo["first_player"]);
+////			BattleInfo.Instance.dataPlayerInfo = dicPlayerInfo;
+//			BattleInfo.Instance.SetPlayerInfo(dicPlayerInfo);
+//		});
+//		Debug.Log ("completed get playerinfo");
 //	}
+
+	void Start(){
+	}
 }
