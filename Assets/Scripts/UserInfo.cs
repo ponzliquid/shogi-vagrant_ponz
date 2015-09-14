@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 
-	public string urlLogin { get; private set;}
+	// TODO セッター用意しなくてよくね？
+	public string urlLogging { get; private set;}
 	public string playerName { get; private set;}
-	public string roomNumber { get; private set;}
 	private Dictionary<string,object> userData;
 	private Dictionary<string,object> roomState = null;
 
 	public void SetLoggingURL(string url){
-		urlLogin = url;
+		urlLogging = url;
 	}
 
 	public void SetState(Dictionary<string, object> state){
@@ -42,7 +42,7 @@ public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 		return int.Parse (userData ["play_id"].ToString ());
 	}
 
-	public string GetRole(){
+	public string GetUserRole(){
 		return userData ["role"].ToString ();
 	}
 

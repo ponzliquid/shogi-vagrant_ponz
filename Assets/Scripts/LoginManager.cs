@@ -7,8 +7,6 @@ using MiniJSON;
 
 public class LoginManager : MonoBehaviour {
 	
-	private string userID = null;
-	private string playID = null;
 	private Text textAlert;
 	private const string LOCAL_ACCESS_URL = "http://192.168.33.11:3000/";
 	private string loggingURL;
@@ -19,6 +17,7 @@ public class LoginManager : MonoBehaviour {
 		loggingURL = LOCAL_ACCESS_URL;
 		string loginURL = LOCAL_ACCESS_URL + "users/login";
 
+		// TODO wwwじゃなくてDicで返ってくるから
 		WWW www = ShogiHTTP.Instance.Login (loginURL, playerName, roomNumber);
 		Debug.Log ("Logging in by local address...");
 		textAlert.text = "Logging in to " + loginURL + " ...";

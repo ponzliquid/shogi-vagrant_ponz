@@ -3,7 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
-	
+
+	private WWW GET(string url){
+		WWW www = new WWW (url);
+		StartCoroutine (WaitForRequest (www));
+		return www;
+	}
+
+	// TODO wwwじゃなくてDicで返して
 	public WWW Login(string url, string name, string room_no){
 		WWWForm form = new WWWForm();
 		form.AddField("name", name);
@@ -12,7 +19,7 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		StartCoroutine(WaitForRequest(www));
 		return www;
 	}
-
+	
 	public WWW Logout(string url, string play_id, string user_id){
 		WWWForm form = new WWWForm();
 		form.AddField("play_id", play_id);
@@ -21,16 +28,18 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		StartCoroutine(WaitForRequest(www));
 		return www;
 	}
-
+	
 	public WWW State(string url){
-		WWW www = new WWW (url);
-		StartCoroutine (WaitForRequest (www));
-		return www;
+		return GET (url);
+	}
+
+	public Dictionary<string, object> Player(string url){
+		url = url + "plays/" + UserInfo.Instance.GetPlayID ().ToString () + "/users";
+		return JsonParser.ParseNonNestedJson (GET (url).text);
 	}
 
 	private IEnumerator WaitForRequest(WWW www) {
 		yield return www;
-		// check for errors
 		if (www.error == null) {
 			Debug.Log("WWW Ok!: " + www.text);
 		} else {
@@ -45,14 +54,5 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 			return;
 		}
 		DontDestroyOnLoad(this.gameObject);
-	}
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-//		Debug.Log ("accessor test: " + LoginManager.Instance.playerName);
 	}
 }
