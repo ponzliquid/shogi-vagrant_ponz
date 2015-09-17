@@ -26,21 +26,18 @@ public class BattleUI : MonoBehaviour {
 	}
 
 	void Hoge(){
-//		battleManager.GetPlayerInfoFromServer ();
 		ShogiHTTP.Instance.Player (UserInfo.Instance.urlLogging,
-		                           (Dictionary<string, Dictionary<string, object>> dicPlayerInfo) => {
-			Debug.Log("dicPlayerInfo[\"first_player\"] " + dicPlayerInfo["first_player"]);
-			//			BattleInfo.Instance.dataPlayerInfo = dicPlayerInfo;
-			BattleInfo.Instance.SetPlayerInfo(dicPlayerInfo);
-			Debug.Log ("after callback: " + dicPlayerInfo["first_player"].ToString());
-			foreach(object opponentinfo in dicPlayerInfo.Values){
-				Debug.Log("opponentinfo.ToString(): " + opponentinfo.ToString());
-				textAudienceInfoText.text = opponentinfo.ToString();
-			}
-
+		                           (Dictionary<string, object> dicPlayerInfo) => {
+			battleManager.FetchPlayerInfo(dicPlayerInfo);
+//			Debug.Log("dicPlayerInfo[\"first_player\"] " + dicPlayerInfo["first_player"]);o;
+//			BattleInfo.Instance.SetPlayerInfo(dicPlayerInfo);
+//			Debug.Log ("after callback: " + dicPlayerInfo["first_player"].ToString());
+//			foreach(object opponentinfo in dicPlayerInfo.Values){
+//				Debug.Log("opponentinfo.ToString(): " + opponentinfo.ToString());
+//				textAudienceInfoText.text = opponentinfo.ToString();
+//			}
+			textAudienceInfoText.text = BattleInfo.Instance.infoOpponent["name"].ToString();
 		});
-//		while (BattleInfo.Instance.IsPlayerInfoNull());
-
 	}
 
 	void Start () {
@@ -54,6 +51,7 @@ public class BattleUI : MonoBehaviour {
 		textPlayerPlayID.text = "PlayID: " + UserInfo.Instance.GetPlayID().ToString();
 		textPlayerRole.text = "YourRole: " + UserInfo.Instance.GetUserRole();
 
+		// TODO audienceのまま
 		textAudienceInfoText = GameObject.Find ("AudienceInfoText").GetComponent<Text> ();
 		Hoge ();
 	}

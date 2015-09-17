@@ -17,16 +17,24 @@ public class BattleManager : MonoBehaviour {
 		UserInfo.Instance.InitUserData ();
 	}
 
-//	public void GetPlayerInfoFromServer(){
-//		// TODO まだShogiHTTPには完全なURLを送っている
-//		ShogiHTTP.Instance.Player (UserInfo.Instance.urlLogging,
-//		                                           (Dictionary<string, object> dicPlayerInfo) => {
-//			Debug.Log("dicPlayerInfo[\"first_player\"] " + dicPlayerInfo["first_player"]);
-////			BattleInfo.Instance.dataPlayerInfo = dicPlayerInfo;
-//			BattleInfo.Instance.SetPlayerInfo(dicPlayerInfo);
-//		});
-//		Debug.Log ("completed get playerinfo");
-//	}
+	public void FetchPlayerInfo(Dictionary<string, object> dicPlayerInfo){
+		// TODO まだShogiHTTPには完全なURLを送っている
+		Debug.Log("dicPlayerInfo[\"first_player\"] " + dicPlayerInfo["first_player"]);
+//		BattleInfo.Instance.SetPlayerInfo(dicPlayerInfo);
+		foreach(KeyValuePair<string, object> pair in dicPlayerInfo){
+			Dictionary<string, object> dic = pair.Value as Dictionary<string, object>;
+			if(dic["user_id"].ToString() == UserInfo.Instance.GetUserID().ToString()){
+				BattleInfo.Instance.SetPlayerInfo(dic);
+			}
+			else{
+				BattleInfo.Instance.SetOpponentInfo(dic);
+			}
+		}
+	}
+
+	// TODO 関数作れ：foreachで回してPieceAllocatorに40個全部投げる関数
+
+	// TODO 関数作れ：PieceAllocatorに1個だけ更新投げる関数
 
 	void Start(){
 	}

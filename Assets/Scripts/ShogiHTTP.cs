@@ -14,7 +14,7 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 	public delegate void ParsedNonNested (Dictionary<string, object> dic);
 	
 	// 「この引数が返ってくるから」
-	public delegate void ParsedNested (Dictionary<string, Dictionary<string, object>> dic);
+	public delegate void ParsedNested (Dictionary<string, object> dic);
 
 	// TODO wwwじゃなくてDicで返して
 	public WWW Login(string url, string name, string room_no){
@@ -71,7 +71,7 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		yield return www;
 		if (www.error == null) {
 			Debug.Log("WWW Ok!: " + www.text);
-			Dictionary<string, Dictionary<string, object>> wwwParsed = JsonParser.ParseNonNestedJson(www.text);
+			Dictionary<string, object> wwwParsed = JsonParser.ParseNonNestedJson(www.text);
 			callback(wwwParsed);
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
