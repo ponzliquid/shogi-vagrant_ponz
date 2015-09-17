@@ -202,3 +202,75 @@ UnloadTime: 2.136654 ms
 Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 231.
 Total: 0.242101 ms (FindLiveObjects: 0.031394 ms CreateObjectMapping: 0.009659 ms MarkObjects: 0.192896 ms  DeleteObjects: 0.007848 ms)
 
+Logging out...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: ["true"]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.002518 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 292.
+Total: 0.625479 ms (FindLiveObjects: 0.038337 ms CreateObjectMapping: 0.021131 ms MarkObjects: 0.546993 ms  DeleteObjects: 0.017810 ms)
+
+Logging out...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: ["true"]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.686760 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 292.
+Total: 0.512579 ms (FindLiveObjects: 0.035922 ms CreateObjectMapping: 0.016904 ms MarkObjects: 0.442847 ms  DeleteObjects: 0.015999 ms)
+
+called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"user_id":18,"play_id":5,"state":"waiting","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+ready to get state
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.612197 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 231.
+Total: 0.202254 ms (FindLiveObjects: 0.014489 ms CreateObjectMapping: 0.009961 ms MarkObjects: 0.170859 ms  DeleteObjects: 0.006641 ms)
+
+called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"user_id":19,"play_id":5,"state":"playing","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+ready to get state
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.534012 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 231.
+Total: 0.378548 ms (FindLiveObjects: 0.024753 ms CreateObjectMapping: 0.017508 ms MarkObjects: 0.322098 ms  DeleteObjects: 0.013584 ms)
+

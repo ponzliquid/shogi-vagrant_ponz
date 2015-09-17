@@ -30,7 +30,6 @@ public class LoginUI : MonoBehaviour {
 	}
 
 	public void LoginToServerUI(){
-		Debug.Log ("called");
 		if(!UserInfo.Instance.IsUserDataNull()){
 			textAlert.text = "CAUTION: Already Logged in.";
 			return;
@@ -57,12 +56,9 @@ public class LoginUI : MonoBehaviour {
 	}
 
 	private IEnumerator LoggedInToServerUI(){
-//		Debug.Log ("logged in");
 		while (UserInfo.Instance.IsUserDataNull()) {
 			yield return new WaitForEndOfFrame();
 		}
-//		btnLogin.SetActive (true);
-		Debug.Log ("ready to get state");
 
 		while(true){
 			roomState = UserInfo.Instance.GetState ();
