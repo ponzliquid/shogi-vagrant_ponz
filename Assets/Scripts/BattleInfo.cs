@@ -4,25 +4,25 @@ using System.Collections.Generic;
 
 public class BattleInfo : SingletonMonoBehaviour<BattleInfo> {
 
-	public Dictionary<string, object> infoPlayer{ get; private set;}
-	public Dictionary<string, object> infoOpponent { get; private set;}
+	public Dictionary<string, object> infoFirstPlayer{ get; private set;}
+	public Dictionary<string, object> infoLastPlayer { get; private set;}
 
 	public bool IsPlayerInfoNull(){
-		if(infoPlayer == null && infoOpponent == null){
+		if(infoFirstPlayer == null || infoLastPlayer == null){
 			return true;
 		}else{
 			return false;
 		}
 	}
 
-	public void SetPlayerInfo(Dictionary<string, object> info){
-		infoPlayer = null;
-		infoPlayer = info;
+	public void SetFirstPlayerInfo(Dictionary<string, object> info){
+		infoFirstPlayer = null;
+		infoFirstPlayer = info;
 	}
 	
-	public void SetOpponentInfo(Dictionary<string, object> info){
-		infoOpponent = null;
-		infoOpponent = info;
+	public void SetLastPlayerInfo(Dictionary<string, object> info){
+		infoLastPlayer = null;
+		infoLastPlayer = info;
 	}
 
 	void Awake(){

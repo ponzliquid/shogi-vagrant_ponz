@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class BattleUI : MonoBehaviour {
 
-	private Text textPlayerUserID, textPlayerPlayID, textPlayerRole;
-	private Text textAudienceInfoText;
+	private Text textPlayerName, textOpponentName;
+	private Text textAudienceInfoText; // for Debug
 	private BattleManager battleManager;
 
 	public void LogoutFromServerUI(){
@@ -25,37 +25,36 @@ public class BattleUI : MonoBehaviour {
 		Application.LoadLevel ("Lobby");
 	}
 
-	void Hoge(){
+	private void InitPlayerPanel(){
 		ShogiHTTP.Instance.Player (UserInfo.Instance.urlLogging,
 		                           (Dictionary<string, object> dicPlayerInfo) => {
-			battleManager.FetchPlayerInfo(dicPlayerInfo);
-//			Debug.Log("dicPlayerInfo[\"first_player\"] " + dicPlayerInfo["first_player"]);o;
-//			BattleInfo.Instance.SetPlayerInfo(dicPlayerInfo);
-//			Debug.Log ("after callback: " + dicPlayerInfo["first_player"].ToString());
-//			foreach(object opponentinfo in dicPlayerInfo.Values){
-//				Debug.Log("opponentinfo.ToString(): " + opponentinfo.ToString());
-//				textAudienceInfoText.text = opponentinfo.ToString();
+			battleManager.SetPlayerInfo(dicPlayerInfo);
+//			while( BattleInfo.Instance.IsPlayerInfoNull() ){
+//				yield return new WaitForEndOfFrame();
 //			}
-			textAudienceInfoText.text = BattleInfo.Instance.infoOpponent["name"].ToString();
+			Debug.Log("referring battle info");
+			textPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
+			textOpponentName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
 		});
 	}
 
 	void Start () {
-		textPlayerUserID = GameObject.Find ("TextPlayerUserID").GetComponent<Text> ();
-		textPlayerPlayID = GameObject.Find ("TextPlayerPlayID").GetComponent<Text> ();
-		textPlayerRole = GameObject.Find ("TextPlayerRole").GetComponent<Text> ();
-
 		battleManager = GameObject.Find ("BattleManager").GetComponent<BattleManager> ();
 
-		textPlayerUserID.text = "YourID: " + UserInfo.Instance.GetUserID().ToString();
-		textPlayerPlayID.text = "PlayID: " + UserInfo.Instance.GetPlayID().ToString();
-		textPlayerRole.text = "YourRole: " + UserInfo.Instance.GetUserRole();
-
-		// TODO audienceのまま
 		textAudienceInfoText = GameObject.Find ("AudienceInfoText").GetComponent<Text> ();
-		Hoge ();
-	}
 
-	void Update () {
+		textPlayerName = GameObject.Find ("TextPlayerName").GetComponent<Text> ();
+		textOpponentName = GameObject.Find ("TextOpponentName").GetComponent<Text> ();
+
+		InitPlayerPanel();
+
+		Debug.Log ("Your Role :" + UserInfo.Instance.GetUserRole().ToString() );
+
+		if (UserInfo.Instance.GetUserRole().ToString() == "player") {
+			textAudienceInfoText.text = "対戦モードです";
+		}
+		else if(UserInfo.Instance.GetUserRole().ToString() == "watcher"){
+			textAudienceInfoText.text = "観戦モードです";
+		}
 	}
 }

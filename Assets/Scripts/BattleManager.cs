@@ -17,17 +17,17 @@ public class BattleManager : MonoBehaviour {
 		UserInfo.Instance.InitUserData ();
 	}
 
-	public void FetchPlayerInfo(Dictionary<string, object> dicPlayerInfo){
+	public void SetPlayerInfo(Dictionary<string, object> dicPlayerInfo){
 		// TODO まだShogiHTTPには完全なURLを送っている
-		Debug.Log("dicPlayerInfo[\"first_player\"] " + dicPlayerInfo["first_player"]);
-//		BattleInfo.Instance.SetPlayerInfo(dicPlayerInfo);
 		foreach(KeyValuePair<string, object> pair in dicPlayerInfo){
 			Dictionary<string, object> dic = pair.Value as Dictionary<string, object>;
-			if(dic["user_id"].ToString() == UserInfo.Instance.GetUserID().ToString()){
-				BattleInfo.Instance.SetPlayerInfo(dic);
+			if(pair.Key.ToString() == "first_player"){
+				BattleInfo.Instance.SetFirstPlayerInfo(dic);
+				Debug.Log ("seting battle info: first");
 			}
 			else{
-				BattleInfo.Instance.SetOpponentInfo(dic);
+				BattleInfo.Instance.SetLastPlayerInfo(dic);
+				Debug.Log ("seting battle info: last");
 			}
 		}
 	}
