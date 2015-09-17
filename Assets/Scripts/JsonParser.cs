@@ -9,10 +9,4 @@ public class JsonParser {
 		dicParsed= Json.Deserialize(rawtext) as Dictionary<string, object>;
 		return dicParsed;
 	}
-
-	public Dictionary<string, Dictionary<string, object>> ParseNestedJson(string rawtext){
-		Dictionary<string, Dictionary<string, object>> dicParsed;
-		dicParsed= Json.Deserialize(rawtext) as Dictionary<string, Dictionary<string, object>>;
-		return dicParsed;
-	}
 }

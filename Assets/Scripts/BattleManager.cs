@@ -33,6 +33,12 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	// TODO 関数作れ：foreachで回してPieceAllocatorに40個全部投げる関数
+	public void SetPieceInfo(Dictionary<string, object> dicPiece){
+		foreach(KeyValuePair<string, object> pair in dicPiece){
+			Dictionary<string, object> dic = pair.Value as Dictionary<string, object>;
+			// 一気に
+		}
+	}
 
 	// TODO 関数作れ：PieceAllocatorに1個だけ更新投げる関数
 

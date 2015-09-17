@@ -29,12 +29,29 @@ public class BattleUI : MonoBehaviour {
 		ShogiHTTP.Instance.Player (UserInfo.Instance.urlLogging,
 		                           (Dictionary<string, object> dicPlayerInfo) => {
 			battleManager.SetPlayerInfo(dicPlayerInfo);
-//			while( BattleInfo.Instance.IsPlayerInfoNull() ){
-//				yield return new WaitForEndOfFrame();
-//			}
-			Debug.Log("referring battle info");
-			textPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
-			textOpponentName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
+
+			// 対戦者の名前と対戦モードかどうかを表示
+			if(UserInfo.Instance.GetUserRole().ToString() == "player"
+				&& BattleInfo.Instance.infoFirstPlayer["user_id"].ToString()
+			   		== UserInfo.Instance.GetUserID().ToString()){
+				textAudienceInfoText.text = "対戦モードです";
+				textPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
+			}else if(UserInfo.Instance.GetUserRole().ToString() == "player"
+			         && BattleInfo.Instance.infoLastPlayer["user_id"].ToString()
+			         	== UserInfo.Instance.GetUserID().ToString()){
+				textAudienceInfoText.text = "対戦モードです";
+				textOpponentName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
+			}
+			else{
+				textAudienceInfoText.text = "観戦モードです";
+			}
+		});
+	}
+
+	private void InitPieceLocation(){
+		ShogiHTTP.Instance.Pieces(UserInfo.Instance.urlLogging, 
+		                          (Dictionary<string, object> dicPieces) => {
+
 		});
 	}
 
@@ -48,13 +65,8 @@ public class BattleUI : MonoBehaviour {
 
 		InitPlayerPanel();
 
-		Debug.Log ("Your Role :" + UserInfo.Instance.GetUserRole().ToString() );
+		InitPieceLocation ();
 
-		if (UserInfo.Instance.GetUserRole().ToString() == "player") {
-			textAudienceInfoText.text = "対戦モードです";
-		}
-		else if(UserInfo.Instance.GetUserRole().ToString() == "watcher"){
-			textAudienceInfoText.text = "観戦モードです";
-		}
+//		Debug.Log ("Your Role :" + UserInfo.Instance.GetUserRole().ToString() );
 	}
 }
