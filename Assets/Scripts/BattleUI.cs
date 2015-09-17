@@ -48,13 +48,6 @@ public class BattleUI : MonoBehaviour {
 		});
 	}
 
-	private void InitPieceLocation(){
-		ShogiHTTP.Instance.Pieces(UserInfo.Instance.urlLogging, 
-		                          (Dictionary<string, object> dicPieces) => {
-
-		});
-	}
-
 	void Start () {
 		battleManager = GameObject.Find ("BattleManager").GetComponent<BattleManager> ();
 
@@ -64,8 +57,6 @@ public class BattleUI : MonoBehaviour {
 		textOpponentName = GameObject.Find ("TextOpponentName").GetComponent<Text> ();
 
 		InitPlayerPanel();
-
-		InitPieceLocation ();
 
 //		Debug.Log ("Your Role :" + UserInfo.Instance.GetUserRole().ToString() );
 	}

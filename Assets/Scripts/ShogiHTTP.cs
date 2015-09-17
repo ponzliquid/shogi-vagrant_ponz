@@ -69,6 +69,7 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		}
 	}
 
+
 	public void Awake()
 	{
 		if(this != Instance){

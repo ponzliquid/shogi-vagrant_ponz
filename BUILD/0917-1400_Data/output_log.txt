@@ -17,52 +17,24 @@ Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-
 Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
 Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.035 seconds
+- Completed reload, in  0.039 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initialized touch support.
 Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1fe0 -> priority: 1 
-  Thread -> id: 22e4 -> priority: 1 
-Initialize engine version: 5.1.3f1 (b0a23b31c3d8)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 640 (ID=0xfc0)
-    Vendor:   NVIDIA
-    VRAM:     3072 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.037 seconds
-<RI> Initializing input.
-<RI> Input initialized.
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initialized touch support.
-Platform assembly: C:\Users\intern\Documents\unityproj\shogi-vagrant_aimosaka06\BUILD\0917-1400_Data\Managed\System.dll (this message is harmless)
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 250c -> priority: 1 
-  Thread -> id: 1a78 -> priority: 1 
+  Thread -> id: cf0 -> priority: 1 
+  Thread -> id: 9a8 -> priority: 1 
 Logging in by local address...
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-WWW Ok!: {"user_id":21,"play_id":6,"state":"waiting","role":"player"}
+WWW Ok!: {"user_id":7,"play_id":4,"state":"waiting","role":"player"}
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-access state URL : http://192.168.33.11:3000/plays/6/state
+access state URL : http://192.168.33.11:3000/plays/4/state
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
@@ -78,7 +50,7 @@ state waiting but null
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-access state URL : http://192.168.33.11:3000/plays/6/state
+access state URL : http://192.168.33.11:3000/plays/4/state
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
@@ -94,7 +66,7 @@ state waiting
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-access state URL : http://192.168.33.11:3000/plays/6/state
+access state URL : http://192.168.33.11:3000/plays/4/state
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
@@ -110,7 +82,7 @@ state waiting
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-access state URL : http://192.168.33.11:3000/plays/6/state
+access state URL : http://192.168.33.11:3000/plays/4/state
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
@@ -126,7 +98,7 @@ state waiting
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-access state URL : http://192.168.33.11:3000/plays/6/state
+access state URL : http://192.168.33.11:3000/plays/4/state
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
@@ -142,7 +114,7 @@ state waiting
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-access state URL : http://192.168.33.11:3000/plays/6/state
+access state URL : http://192.168.33.11:3000/plays/4/state
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
@@ -158,251 +130,7 @@ state waiting
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Logging in by local address...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"state":"waiting"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-access state URL : http://192.168.33.11:3000/plays/6/state
+access state URL : http://192.168.33.11:3000/plays/4/state
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
@@ -419,62 +147,16 @@ state waiting
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-WWW Ok!: {"user_id":22,"play_id":6,"state":"playing","role":"player"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-UnloadTime: 5.951719 ms
-access state URL : http://192.168.33.11:3000/plays/6/state
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Getting Game State...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
+UnloadTime: 2.943257 ms
 
 Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 245.
-Total: 0.379755 ms (FindLiveObjects: 0.045884 ms CreateObjectMapping: 0.018112 ms MarkObjects: 0.302778 ms  DeleteObjects: 0.012376 ms)
+Total: 0.195009 ms (FindLiveObjects: 0.017810 ms CreateObjectMapping: 0.008150 ms MarkObjects: 0.160596 ms  DeleteObjects: 0.008452 ms)
 
 Your Role :player
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-WWW Ok!: {"state":"playing"}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-state waiting but null
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-WWW Ok!: {"first_player":{"user_id":22,"name":"b1"},"last_player":{"user_id":21,"name":"b2"}}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-seting battle info: first
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-seting battle info: last
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-referring battle info
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-UnloadTime: 2.387510 ms
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 245.
-Total: 0.252365 ms (FindLiveObjects: 0.027772 ms CreateObjectMapping: 0.010867 ms MarkObjects: 0.204971 ms  DeleteObjects: 0.008150 ms)
-
-Your Role :player
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WWW Ok!: {"first_player":{"user_id":22,"name":"b1"},"last_player":{"user_id":21,"name":"b2"}}
+WWW Ok!: {"first_player":{"user_id":8,"name":"p"},"last_player":{"user_id":7,"name":"b"}}
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
