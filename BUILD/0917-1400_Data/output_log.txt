@@ -1048,3 +1048,135 @@ referring battle info
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
+Logging out...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: ["true"]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.468808 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 300.
+Total: 0.313343 ms (FindLiveObjects: 0.012678 ms CreateObjectMapping: 0.007848 ms MarkObjects: 0.285873 ms  DeleteObjects: 0.006641 ms)
+
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"user_id":1,"play_id":1,"state":"waiting","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.924937 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 248.
+Total: 0.520730 ms (FindLiveObjects: 0.034111 ms CreateObjectMapping: 0.017508 ms MarkObjects: 0.454016 ms  DeleteObjects: 0.014489 ms)
+
+Your Role :player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Error: 404 Not Found 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Logging out...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: ["true"]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.537333 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 300.
+Total: 0.461865 ms (FindLiveObjects: 0.027772 ms CreateObjectMapping: 0.012376 ms MarkObjects: 0.407527 ms  DeleteObjects: 0.013584 ms)
+
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"user_id":4,"play_id":2,"state":"playing","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.739285 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 248.
+Total: 0.328135 ms (FindLiveObjects: 0.021734 ms CreateObjectMapping: 0.010263 ms MarkObjects: 0.285873 ms  DeleteObjects: 0.009961 ms)
+
+Your Role :player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"first_player":{"user_id":3,"name":"pnz"},"last_player":{"user_id":4,"name":"bl"}}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+seting battle info: first
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+seting battle info: last
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+referring battle info
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Logging out...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: ["true"]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.391028 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 300.
+Total: 1.189076 ms (FindLiveObjects: 0.057355 ms CreateObjectMapping: 0.037734 ms MarkObjects: 1.062893 ms  DeleteObjects: 0.029281 ms)
+
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"user_id":6,"play_id":3,"state":"playing","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.550615 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 248.
+Total: 0.264742 ms (FindLiveObjects: 0.016904 ms CreateObjectMapping: 0.007546 ms MarkObjects: 0.232441 ms  DeleteObjects: 0.007244 ms)
+
+Your Role :player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WWW Ok!: {"first_player":{"user_id":6,"name":"b"},"last_player":{"user_id":5,"name":"p"}}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+seting battle info: first
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+seting battle info: last
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+referring battle info
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+

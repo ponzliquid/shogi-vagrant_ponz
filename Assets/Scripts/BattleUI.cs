@@ -26,25 +26,23 @@ public class BattleUI : MonoBehaviour {
 	}
 
 	private void InitPlayerPanel(){
-		ShogiHTTP.Instance.Player (UserInfo.Instance.urlLogging,
-		                           (Dictionary<string, object> dicPlayerInfo) => {
-			battleManager.SetPlayerInfo(dicPlayerInfo);
 
-			// 対戦者の名前と対戦モードかどうかを表示
-			if(UserInfo.Instance.GetUserRole().ToString() == "player"){
-				textAudienceInfoText.text = "対戦モードです";
-				if(BattleInfo.Instance.infoFirstPlayer["user_id"].ToString()
-				   == UserInfo.Instance.GetUserID().ToString()){
-					textFirstPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
-				}
-				else{
-					textLastPlayerName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
-				}
+		// 対戦者の名前と対戦モードかどうかを表示
+		if(UserInfo.Instance.GetUserRole().ToString() == "player"){
+			textAudienceInfoText.text = "対戦モードです";
+			if(BattleInfo.Instance.infoFirstPlayer["user_id"].ToString()
+			   == UserInfo.Instance.GetUserID().ToString()){
+				textFirstPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
+				textLastPlayerName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
 			}
 			else{
-				textAudienceInfoText.text = "観戦モードです";
+				textLastPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
+				textFirstPlayerName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
 			}
-		});
+		}
+		else{
+			textAudienceInfoText.text = "観戦モードです";
+		}
 	}
 
 	void Start () {
