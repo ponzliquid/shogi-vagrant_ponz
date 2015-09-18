@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class BattleManager : MonoBehaviour {
 
+	private GameObject objPieceAllocator;
+	private GameObject objBattleUI;
+
 	public IEnumerator LogoutFromServer(string playID, string userID){
 		
 		string logoutURL = UserInfo.Instance.urlLogging + "users/logout";
@@ -23,7 +26,7 @@ public class BattleManager : MonoBehaviour {
 			Dictionary<string, object> dic = pair.Value as Dictionary<string, object>;
 			if(pair.Key.ToString() == "first_player"){
 				BattleInfo.Instance.SetFirstPlayerInfo(dic);
-				Debug.Log ("seting battle info: first");
+				Debug.Log( BattleInfo.Instance.infoFirstPlayer ["user_id"].ToString () );
 			}
 			else{
 				BattleInfo.Instance.SetLastPlayerInfo(dic);
@@ -42,19 +45,36 @@ public class BattleManager : MonoBehaviour {
 
 	// TODO 関数作れ：PieceAllocatorに1個だけ更新投げる関数
 
-	void Awake(){
-		
-	}
-
-	void Start(){
+	private void AdjustAnglesOfUI(){
 		if (BattleInfo.Instance.infoFirstPlayer ["user_id"].ToString ()
 		    == UserInfo.Instance.GetUserID ().ToString ()) {
-			// 先手なら
 			Debug.Log("先手");
+		} else {
 			RectTransform rectTrans = GameObject.Find("Board").GetComponent<RectTransform>();
 			rectTrans.rotation = Quaternion.Euler (0, 0, 180);
-		} else {
 			Debug.Log("後手");
 		}
+	}
+
+	private void FetchBattleInfo(){
+		ShogiHTTP.Instance.Player (UserInfo.Instance.urlLogging,
+		                           (Dictionary<string, object> dicPlayerInfo) => {
+			SetPlayerInfo(dicPlayerInfo);
+			AdjustAnglesOfUI();
+
+			CreateScriptComponent.Create("PieceAllocator");
+			CreateScriptComponent.Create("BattleUI");
+
+//			objPieceAllocator = GameObject.Find("PieceAllocator");
+//			objPieceAllocator.AddComponent<PieceAllocator>();
+//
+//			objBattleUI = GameObject.Find("BattleUI");
+//			objBattleUI.AddComponent<BattleUI>();
+		});
+		return;
+	}
+
+	void Awake(){
+		FetchBattleInfo ();
 	}
 }

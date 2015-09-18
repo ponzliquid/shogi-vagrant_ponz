@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class BattleUI : MonoBehaviour {
 
-	private Text textPlayerName, textOpponentName;
+	private Text textFirstPlayerName, textLastPlayerName;
 	private Text textAudienceInfoText; // for Debug
 	private BattleManager battleManager;
 
@@ -35,10 +35,10 @@ public class BattleUI : MonoBehaviour {
 				textAudienceInfoText.text = "対戦モードです";
 				if(BattleInfo.Instance.infoFirstPlayer["user_id"].ToString()
 				   == UserInfo.Instance.GetUserID().ToString()){
-					textPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
+					textFirstPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
 				}
 				else{
-					textOpponentName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
+					textLastPlayerName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
 				}
 			}
 			else{
@@ -47,13 +47,13 @@ public class BattleUI : MonoBehaviour {
 		});
 	}
 
-	void Awake() {
+	void Start () {
 		battleManager = GameObject.Find ("BattleManager").GetComponent<BattleManager> ();
 
 		textAudienceInfoText = GameObject.Find ("AudienceInfoText").GetComponent<Text> ();
 
-		textPlayerName = GameObject.Find ("TextPlayerName").GetComponent<Text> ();
-		textOpponentName = GameObject.Find ("TextOpponentName").GetComponent<Text> ();
+		textFirstPlayerName = GameObject.Find ("TextFirstPlayerName").GetComponent<Text> ();
+		textLastPlayerName = GameObject.Find ("TextLastPlayerName").GetComponent<Text> ();
 
 		InitPlayerPanel();
 

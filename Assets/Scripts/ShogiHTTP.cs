@@ -77,5 +77,7 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 			return;
 		}
 		DontDestroyOnLoad(this.gameObject);
+
+
 	}
 }

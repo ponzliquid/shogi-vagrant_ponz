@@ -29,10 +29,10 @@ public class PieceSubject : MonoBehaviour {
 		float buffY = POSX_DEF - WIDTH_PIECE_DEF * (float.Parse(dic ["posy"].ToString()) - 1f);
 		rectTrans.localPosition = new Vector3(buffX, buffY,0);
 
-		if (dic ["owner"].ToString () != UserInfo.Instance.GetUserID ().ToString ()) {
-			Debug.Log ("P(name,x,y,own) =(" + dic ["name"].ToString () + ", " + rectTrans.localPosition.x.ToString () + ", "
-				+ rectTrans.localPosition.y + ", "
-				+ dic ["owner"].ToString () + ")" + "ひっくり返して");
+		if (dic ["owner"].ToString () == BattleInfo.Instance.infoLastPlayer["user_id"].ToString()) {
+//			Debug.Log ("P(name,x,y,own) =(" + dic ["name"].ToString () + ", " + rectTrans.localPosition.x.ToString () + ", "
+//				+ rectTrans.localPosition.y + ", "
+//				+ dic ["owner"].ToString () + ")" + "ひっくり返して");
 
 			rectTrans.rotation = Quaternion.Euler (0, 0, 180);
 		}

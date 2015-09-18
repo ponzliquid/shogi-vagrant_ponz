@@ -95,7 +95,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 16990333}
-  - 114: {fileID: 16990332}
   m_Layer: 5
   m_Name: BattleUI
   m_TagString: Untagged
@@ -103,17 +102,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &16990332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 16990331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a80e0bca3e06a4ab2f919ab3e21c71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &16990333
 RectTransform:
   m_ObjectHideFlags: 0
@@ -172,11 +160,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22491154, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 239.399994
+      value: 133.199997
       objectReference: {fileID: 0}
     - target: {fileID: 22491154, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 207.5
+      value: 201.899994
       objectReference: {fileID: 0}
     - target: {fileID: 22491154, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
       propertyPath: m_SizeDelta.x
@@ -210,6 +198,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11446974, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b6c15833b41647d48b3c404cbb4b8081,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
   m_IsPrefabParent: 0
@@ -318,7 +311,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 379529421}
-  - 114: {fileID: 379529420}
   m_Layer: 0
   m_Name: PieceAllocator
   m_TagString: Untagged
@@ -326,18 +318,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &379529420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 379529419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a634fd37fadf5594a8189b09badfae5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prfbPiece: {fileID: 543646329}
 --- !u!4 &379529421
 Transform:
   m_ObjectHideFlags: 0
@@ -350,12 +330,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &543646329 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11434176, guid: dac20a831c6ce3a4fa40e601e2d0aa91,
-    type: 2}
-  m_PrefabInternal: {fileID: 187525959}
-  m_Script: {fileID: 11500000, guid: e88e5d0ce3d8e114d987bc62a7aa6fe3, type: 3}
 --- !u!1 &591370813
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +339,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 591370814}
   m_Layer: 5
-  m_Name: OpponentInfoText
+  m_Name: LastPlayerInfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -700,7 +674,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1075259804}
   m_Layer: 5
-  m_Name: PlayerInfoText
+  m_Name: FirstPlayerInfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -904,7 +878,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 16990332}
+      - m_Target: {fileID: 0}
         m_MethodName: LogoutFromServerUI
         m_Mode: 1
         m_Arguments:
@@ -1016,7 +990,7 @@ GameObject:
   - 222: {fileID: 1513451216}
   - 114: {fileID: 1513451215}
   m_Layer: 5
-  m_Name: TextOpponentName
+  m_Name: TextLastPlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1121,7 +1095,7 @@ GameObject:
   - 222: {fileID: 1859809774}
   - 114: {fileID: 1859809773}
   m_Layer: 5
-  m_Name: PanelOpponentInfo
+  m_Name: PanelLastPlayerInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1329,7 +1303,7 @@ GameObject:
   - 222: {fileID: 2022471104}
   - 114: {fileID: 2022471103}
   m_Layer: 5
-  m_Name: PanelPlayerInfo
+  m_Name: PanelFirstPlayerInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1391,7 +1365,7 @@ GameObject:
   - 222: {fileID: 2079326248}
   - 114: {fileID: 2079326247}
   m_Layer: 5
-  m_Name: TextPlayerName
+  m_Name: TextFirstPlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

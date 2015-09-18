@@ -18,6 +18,7 @@ public class PieceAllocator : MonoBehaviour {
 	}
 
 	void Start(){
+		prfbPiece = Resources.Load<PieceSubject>("Prefabs/Piece");
 		FetchPieceLocation ();
 	}
 }
