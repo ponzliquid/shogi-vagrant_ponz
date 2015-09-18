@@ -160,11 +160,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22491154, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 133.199997
+      value: 218.399994
       objectReference: {fileID: 0}
     - target: {fileID: 22491154, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 201.899994
+      value: 183.600006
       objectReference: {fileID: 0}
     - target: {fileID: 22491154, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
       propertyPath: m_SizeDelta.x
@@ -203,9 +203,33 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: b6c15833b41647d48b3c404cbb4b8081,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &187525960 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 147478, guid: dac20a831c6ce3a4fa40e601e2d0aa91, type: 2}
+  m_PrefabInternal: {fileID: 187525959}
+--- !u!131 &187525961
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 187525960}
+  m_Enabled: 1
+  m_Texture: {fileID: 0}
+  m_Color: {r: .5, g: .5, b: .5, a: .5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
 --- !u!1 &351666762
 GameObject:
   m_ObjectHideFlags: 0

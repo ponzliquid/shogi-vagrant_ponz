@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PieceSubject : MonoBehaviour {
+public class PieceSubject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
 	private const string PATH_SPRITE_PIECE_64 = "Koma";
 	private const float POSX_DEF = 200f, POSY_DEF = 200;
@@ -48,16 +49,34 @@ public class PieceSubject : MonoBehaviour {
 		});
 	}
 
-	void OnMouseDrag(){
-		Debug.Log ("OnMouseDrag");
-		Vector3 objectPointInScreen
-			= Camera.main.WorldToScreenPoint (this.transform.position);
-		Vector3 mousePointInScreen
-			= new Vector3 (Input.mousePosition.x, Input.mousePosition.y, objectPointInScreen.z);
-		Vector3 mousePointInWorld
-			= Camera.main.ScreenToWorldPoint (mousePointInScreen);
-		mousePointInWorld.z = this.transform.position.z;
-		this.transform.position = mousePointInWorld;
+//	void OnMouseDrag(){
+//		Debug.Log ("OnMouseDrag");
+//		Vector3 objectPointInScreen
+//			= Camera.main.WorldToScreenPoint (this.transform.position);
+//		Vector3 mousePointInScreen
+//			= new Vector3 (Input.mousePosition.x, Input.mousePosition.y, objectPointInScreen.z);
+//		Vector3 mousePointInWorld
+//			= Camera.main.ScreenToWorldPoint (mousePointInScreen);
+//		mousePointInWorld.z = this.transform.position.z;
+//		this.transform.position = mousePointInWorld;
+//	}
+
+	void IBeginDragHandler.OnBeginDrag(PointerEventData e){
+		RectTransform rectTrans = this.GetComponent<RectTransform>();
+		rectTrans.SetAsFirstSibling();
+	}
+
+	void IDragHandler.OnDrag(PointerEventData ped){
+		ped.position = new Vector2 (ped.position.x - POSX_DEF, ped.position.y - POSY_DEF);
+		Debug.Log("ped position="+ped.position);
+		RectTransform rectTrans = this.GetComponent<RectTransform>();
+		rectTrans.localPosition = new Vector3(ped.position.x, ped.position.y,0);
+		Debug.Log("rect position="+rectTrans.localPosition);
+	}
+
+	void IEndDragHandler.OnEndDrag(PointerEventData e){
+		RectTransform rectTrans = this.GetComponent<RectTransform>();
+		rectTrans.SetAsLastSibling();
 	}
 
 	void Awake(){
