@@ -7,7 +7,7 @@ public class PieceAllocator : MonoBehaviour {
 
 	public PieceSubject prfbPiece;
 
-	void FetchPieceLocation(){
+	private void FetchPieceLocation(){
 		ShogiHTTP.Instance.Pieces(UserInfo.Instance.urlLogging, 
 		                          (Dictionary<string, object> dicPieces) => {
 			foreach(KeyValuePair<string, object> pair in dicPieces){
@@ -17,7 +17,7 @@ public class PieceAllocator : MonoBehaviour {
 		});
 	}
 
-	void Awake(){
+	void Start(){
 		FetchPieceLocation ();
 	}
 }

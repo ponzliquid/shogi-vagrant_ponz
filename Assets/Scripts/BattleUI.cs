@@ -31,16 +31,15 @@ public class BattleUI : MonoBehaviour {
 			battleManager.SetPlayerInfo(dicPlayerInfo);
 
 			// 対戦者の名前と対戦モードかどうかを表示
-			if(UserInfo.Instance.GetUserRole().ToString() == "player"
-				&& BattleInfo.Instance.infoFirstPlayer["user_id"].ToString()
-			   		== UserInfo.Instance.GetUserID().ToString()){
+			if(UserInfo.Instance.GetUserRole().ToString() == "player"){
 				textAudienceInfoText.text = "対戦モードです";
-				textPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
-			}else if(UserInfo.Instance.GetUserRole().ToString() == "player"
-			         && BattleInfo.Instance.infoLastPlayer["user_id"].ToString()
-			         	== UserInfo.Instance.GetUserID().ToString()){
-				textAudienceInfoText.text = "対戦モードです";
-				textOpponentName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
+				if(BattleInfo.Instance.infoFirstPlayer["user_id"].ToString()
+				   == UserInfo.Instance.GetUserID().ToString()){
+					textPlayerName.text = BattleInfo.Instance.infoFirstPlayer["name"].ToString();
+				}
+				else{
+					textOpponentName.text = BattleInfo.Instance.infoLastPlayer["name"].ToString();
+				}
 			}
 			else{
 				textAudienceInfoText.text = "観戦モードです";
@@ -48,7 +47,7 @@ public class BattleUI : MonoBehaviour {
 		});
 	}
 
-	void Start () {
+	void Awake() {
 		battleManager = GameObject.Find ("BattleManager").GetComponent<BattleManager> ();
 
 		textAudienceInfoText = GameObject.Find ("AudienceInfoText").GetComponent<Text> ();

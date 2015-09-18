@@ -42,6 +42,19 @@ public class BattleManager : MonoBehaviour {
 
 	// TODO 関数作れ：PieceAllocatorに1個だけ更新投げる関数
 
+	void Awake(){
+		
+	}
+
 	void Start(){
+		if (BattleInfo.Instance.infoFirstPlayer ["user_id"].ToString ()
+		    == UserInfo.Instance.GetUserID ().ToString ()) {
+			// 先手なら
+			Debug.Log("先手");
+			RectTransform rectTrans = GameObject.Find("Board").GetComponent<RectTransform>();
+			rectTrans.rotation = Quaternion.Euler (0, 0, 180);
+		} else {
+			Debug.Log("後手");
+		}
 	}
 }
