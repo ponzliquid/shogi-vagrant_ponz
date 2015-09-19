@@ -64,12 +64,6 @@ public class BattleManager : MonoBehaviour {
 
 			CreateScriptComponent.Create("PieceAllocator");
 			CreateScriptComponent.Create("BattleUI");
-
-//			objPieceAllocator = GameObject.Find("PieceAllocator");
-//			objPieceAllocator.AddComponent<PieceAllocator>();
-//
-//			objBattleUI = GameObject.Find("BattleUI");
-//			objBattleUI.AddComponent<BattleUI>();
 		});
 		return;
 	}

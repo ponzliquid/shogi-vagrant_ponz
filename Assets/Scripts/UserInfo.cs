@@ -54,6 +54,32 @@ public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 		}
 	}
 
+	public void LogoutFromServer(){
+		if (UserInfo.Instance.IsUserDataNull ()) {
+			return;
+		}
+		string logoutURL = UserInfo.Instance.urlLogging;
+		string userID = UserInfo.Instance.GetUserID ().ToString();
+		string playID = UserInfo.Instance.GetPlayID ().ToString();
+
+		ShogiHTTP.Instance.Logout (logoutURL, playID, userID,
+		                           (string str) => {
+			if(str == "true"){
+				Debug.Log ("Success Logout");
+				UserInfo.Instance.InitUserData ();
+				return;
+			}
+			Debug.LogError("Err: Failed Logout");
+		});
+	}
+
+	public void OnApplicationQuit(){
+		// 自動ログアウト処理
+
+
+		Debug.Log ("Auto Logout");
+	}
+
 	void Awake(){
 		if(this != Instance){
 			Destroy(this);

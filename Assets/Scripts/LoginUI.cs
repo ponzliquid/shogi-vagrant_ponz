@@ -10,8 +10,8 @@ public class LoginUI : MonoBehaviour {
 	private string buffPlayerName = null;
 	private string buffRoomNumber = null;
 	private string IPaddress = null;
-	private GameObject btnLogin, btnLogout, textStateObj;
-	private Text textAlert, textState;
+	
+	private Text textMsg, textState;
 	private string roomState;
 	
 	public void SetPlayerName(){
@@ -29,28 +29,36 @@ public class LoginUI : MonoBehaviour {
 		IPaddress = addr.text;
 	}
 
+	public void OutputMsg(string msg){
+		textMsg.text = msg;
+	}
+
+	public void SetLoginButton(bool sw){
+		GameObject btnLogin = GameObject.Find ("BtnLogin");
+		btnLogin.SetActive (sw);
+	}
+
 	public void LoginToServerUI(){
-		if(!UserInfo.Instance.IsUserDataNull()){
-			textAlert.text = "CAUTION: Already Logged in.";
-			return;
-		}
-		else if(buffPlayerName == null || buffPlayerName == ""){
-			textAlert.text = "CAUTION: Fill Name.";
+//		if(!UserInfo.Instance.IsUserDataNull()){
+//			textMsg.text = "CAUTION: Already Logged in.";
+//			return;
+//		}
+		if(buffPlayerName == null || buffPlayerName == ""){
+			textMsg.text = "CAUTION: Fill Name.";
 			return;
 		}
 		else if(buffRoomNumber == null || buffRoomNumber == ""){
-			textAlert.text = "CAUTION: Fill Number.";
+			textMsg.text = "CAUTION: Fill Number.";
 			return;
 		}
-		btnLogin = GameObject.Find ("BtnLogin");
-		btnLogin.SetActive(false);
+
+		SetLoginButton (false);
 		if (IPaddress == null || IPaddress == "") {
-			/* URL未指定時、決め打ちアドレスにログイン */
-			StartCoroutine (loginManager.LoginToServer (buffPlayerName, buffRoomNumber));
+			// URL未指定時、決め打ちアドレスにログイン
+			loginManager.LoginToServer (buffPlayerName, buffRoomNumber);
 		}else{
-			/* 指定URLにログイン */
-			IPaddress = "http://" + IPaddress + "/";
-			StartCoroutine (loginManager.LoginToServer (IPaddress, buffPlayerName, buffRoomNumber));
+			// IPアドレス入力があれば、そのアドレスにログイン
+			loginManager.LoginToServer (IPaddress, buffPlayerName, buffRoomNumber);
 		}
 		StartCoroutine(LoggedInToServerUI ());
 	}
@@ -69,6 +77,7 @@ public class LoginUI : MonoBehaviour {
 			}
 			else if(roomState == "waiting"){
 				yield return StartCoroutine (loginManager.GetRoomState());
+				textState.text = "waiting opponent...";
 				Debug.Log("state waiting");
 				continue;
 			}
@@ -79,20 +88,14 @@ public class LoginUI : MonoBehaviour {
 
 		Application.LoadLevel("Room");
 	}
-
-	private void LoggedOutFromServerUI(){
-		while (!UserInfo.Instance.IsUserDataNull());
-		GameObject.Find ("BtnLogout").SetActive (true);
-	}
 	
 	void Start () {
 		loginManager = GameObject.Find("LoginManager").GetComponent<LoginManager>();
-		textAlert = GameObject.Find ("MsgText").GetComponent<Text> ();
-		textAlert.text = "Fill text above.";
-		textStateObj = GameObject.Find ("TextState");
-		textState = GameObject.Find ("TextState").GetComponent<Text> ();
-		textState.text = "Waiting...";
-		textStateObj.SetActive (false);
+
+		textMsg = GameObject.Find ("MsgText").GetComponent<Text> ();
+		textMsg.text = "Fill text above.";
+
+		textState = GameObject.Find ("StateText").GetComponent<Text> ();
 	}
 	
 	void Update () {

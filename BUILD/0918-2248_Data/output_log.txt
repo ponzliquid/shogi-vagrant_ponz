@@ -1,0 +1,80 @@
+Initialize engine version: 5.2.0f3 (e7947df39b5c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1969 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.037 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 2560x1080 60Hz; virtual: 4480x1080 at 0,0
+<RI> Initialized touch support.
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0918-2248_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: a554 -> priority: 1 
+  Thread -> id: a65c -> priority: 1 
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+WWW Ok!: {"user_id":2,"play_id":1,"state":"playing","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+access state URL : http://192.168.33.11:3000/plays/1/state
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Getting Game State...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+WWW Ok!: {"state":"playing"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+state waiting but null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.582746 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 259.
+Total: 0.234119 ms (FindLiveObjects: 0.022028 ms CreateObjectMapping: 0.007940 ms MarkObjects: 0.195953 ms  DeleteObjects: 0.007428 ms)
+
+WWW Ok!: {"first_player":{"user_id":2,"name":"b"},"last_player":{"user_id":1,"name":"p"}}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+seting battle info: last
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+先手
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+WWW Ok!: {"1":{"name":"fu","posx":9,"posy":7,"owner":2,"promote":false},"2":{"name":"fu","posx":8,"posy":7,"owner":2,"promote":false},"3":{"name":"fu","posx":7,"posy":7,"owner":2,"promote":false},"4":{"name":"fu","posx":6,"posy":7,"owner":2,"promote":false},"5":{"name":"fu","posx":5,"posy":7,"owner":2,"promote":false},"6":{"name":"fu","posx":4,"posy":7,"owner":2,"promote":false},"7":{"name":"fu","posx":3,"posy":7,"owner":2,"promote":false},"8":{"name":"fu","posx":2,"posy":7,"owner":2,"promote":false},"9":{"name":"fu","posx":1,"posy":7,"owner":2,"promote":false},"10":{"name":"fu","posx":1,"posy":3,"owner":1,"promote":false},"11":{"name":"fu","posx":2,"posy":3,"owner":1,"promote":false},"12":{"name":"fu","posx":3,"posy":3,"owner":1,"promote":false},"13":{"name":"fu","posx":4,"posy":3,"owner":1,"promote":false},"14":{"name":"fu","posx":5,"posy":3,"owner":1,"promote":false},"15":{"name":"fu","posx":6,"posy":3,"owner":1,"promote":false},"16":{"name":"fu","posx":7,"posy":3,"owner":1,"promote":false},"17":{"name":"fu","posx":8,"posy":3,"owner":1,"promote":false},"18":{"name":"fu","posx":9,"posy":3,"owner":1,"promote":false},"19":{"name":"kyosha","posx":9,"posy":9,"owner":2,"promote":false},"20":{"name":"kyosha","posx":1,"posy":9,"owner":2,"promote":false},"21":{"name":"kyosha","posx":1,"posy":1,"owner":1,"promote":false},"22":{"name":"kyosha","posx":9,"posy":1,"owner":1,"promote":false},"23":{"name":"keima","posx":8,"posy":9,"owner":2,"promote":false},"24":{"name":"keima","posx":2,"posy":9,"owner":2,"promote":false},"25":{"name":"keima","posx":2,"posy":1,"owner":1,"promote":false},"26":{"name":"keima","posx":8,"posy":1,"owner":1,"promote":false},"27":{"name":"gin","posx":7,"posy":9,"owner":2,"promote":false},"28":{"name":"gin","posx":3,"posy":9,"owner":2,"promote":false},"29":{"name":"gin","posx":3,"posy":1,"owner":1,"promote":false},"30":{"name":"gin","posx":7,"posy":1,"owner":1,"promote":false},"31":{"name":"kin","posx":6,"posy":9,"owner":2,"promote":false},"32":{"name":"kin","posx":4,"posy":9,"owner":2,"promote":false},"33":{"name":"kin","posx":4,"posy":1,"owner":1,"promote":false},"34":{"name":"kin","posx":6,"posy":1,"owner":1,"promote":false},"35":{"name":"hisha","posx":2,"posy":8,"owner":2,"promote":false},"36":{"name":"hisha","posx":8,"posy":2,"owner":1,"promote":false},"37":{"name":"kaku","posx":8,"posy":8,"owner":2,"promote":false},"38":{"name":"kaku","posx":2,"posy":2,"owner":1,"promote":false},"39":{"name":"oh","posx":5,"posy":9,"owner":2,"promote":false},"40":{"name":"oh","posx":5,"posy":1,"owner":1,"promote":false}}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+

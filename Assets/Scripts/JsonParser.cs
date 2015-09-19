@@ -4,7 +4,7 @@ using MiniJSON;
 
 public class JsonParser {
 
-	public static Dictionary<string, object> ParseNonNestedJson(string rawtext){
+	public static Dictionary<string, object> ParseJson(string rawtext){
 		Dictionary<string, object> dicParsed;
 		dicParsed= Json.Deserialize(rawtext) as Dictionary<string, object>;
 		return dicParsed;
