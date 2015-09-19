@@ -21,15 +21,22 @@ public class LoginManager : MonoBehaviour {
 
 		ShogiHTTP.Instance.Login (loginURL, playerName, roomNumber,
 		                          (Dictionary<string, object> dic) => {
+			if(dic == null){
+				loginUI.OutputMsg("Failed to Login " + loginURL +".");
+				loginUI.SetLoginButton (true);
+				Debug.LogError ("Err: Failed to Login" + loginURL);
+				return;
+			}
 			UserInfo.Instance.SetUserData (dic);
 			UserInfo.Instance.SetLoggingURL (loggingURL);
+			FetchRoomState();
+			StartCoroutine(loginUI.WaitForOpponent());
 
 			loginUI.OutputMsg("Successful logging in to " + loginURL +".");
+			loginUI.SetLogoutButton(true);
 			return;
 		});
-		loginUI.OutputMsg("Failed to Login " + loginURL +".");
-		Debug.LogError ("Err: Failed to Login" + loginURL);
-		return;
+
 	}
 
 	// 入力アドレスでログイン
@@ -44,29 +51,33 @@ public class LoginManager : MonoBehaviour {
 
 		ShogiHTTP.Instance.Login (loginURL, playerName, roomNumber,
 		                          (Dictionary<string, object> dic) => {
+			if(dic == null){
+				loginUI.OutputMsg("Failed to Login " + loginURL +".");
+				loginUI.SetLoginButton (true);
+				Debug.LogError ("Err: Failed to Login" + loginURL);
+				return;
+			}
 			UserInfo.Instance.SetUserData (dic);
 			UserInfo.Instance.SetLoggingURL (loggingURL);
+			FetchRoomState();
+			StartCoroutine(loginUI.WaitForOpponent());
 
 			loginUI.OutputMsg("Successful logging in to " + loginURL +".");
+			loginUI.SetLogoutButton(true);
 			return;
 		});
-		loginUI.OutputMsg("Failed to Login " + loginURL +".");
-		loginUI.SetLoginButton (true);
-		Debug.LogError ("Err: Failed to Login" + loginURL);
-		return;
 	}
 
-	public string GetRoomState(){
-		string url = UserInfo.Instance.urlLogging + "plays/"
-					+ UserInfo.Instance.GetPlayID().ToString() + "/state";
-		ShogiHTTP.Instance.State(url)
+	public void InitRoomState(){
+	
+	}
 
-		Debug.Log ("access state URL : " + url);
-		WWW www = ShogiHTTP.Instance.State(url);
-		Debug.Log ("Getting Game State...");
-		yield return www;
-		download = Json.Deserialize (www.text) as Dictionary<string,object>;
-		UserInfo.Instance.SetState (download);
+	public void FetchRoomState(){
+		ShogiHTTP.Instance.State ((Dictionary<string, object> dic) => {
+			UserInfo.Instance.SetState (dic);
+
+		});
+
 //		if (download ["state"] == "waiting") {
 //			UserInfo.Instance.SetState (download);
 //			yield return StartCoroutine(GetRoomState());
@@ -76,23 +87,23 @@ public class LoginManager : MonoBehaviour {
 //		}
 	}
 
-//	public void LogoutFromServer(string playID, string userID){
-//
-//		string logoutURL = loggingURL + "users/login";
-//		
-////		userID = UserInfo.Instance.GetUserID ().ToString();
-////		playID = UserInfo.Instance.GetPlayID ().ToString();
-//
-//		ShogiHTTP.Instance.Logout (logoutURL, playID, userID,
-//		                           (string str) => {
-//			if(str == "true"){
-//				Debug.Log ("Success Logout");
-//				UserInfo.Instance.InitUserData ();
-//				return;
-//			}
-//			Debug.LogError("Err: Failed Logout");
-//		});
-//	}
+	public void LogoutOnLobby(){
 
-	
+		if (UserInfo.Instance.IsUserDataNull ()) {
+			return;
+		}
+
+		LoginUI loginUI = GameObject.Find("LoginUI").GetComponent<LoginUI>();
+
+		ShogiHTTP.Instance.Logout ((string www) => {
+			if(www == "[\"true\"]"){
+
+				UserInfo.Instance.InitUserData ();
+				loginUI.OutputMsg("Logged out from server.");
+				loginUI.SetLoginButton(true);
+
+				return;
+			}
+		});
+	}
 }

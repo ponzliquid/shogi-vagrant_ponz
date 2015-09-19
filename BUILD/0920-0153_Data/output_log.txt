@@ -1,0 +1,79 @@
+Initialize engine version: 5.2.0f3 (e7947df39b5c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1969 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.037 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 2560x1080 60Hz; virtual: 4480x1080 at 0,0
+<RI> Initialized touch support.
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 4a9cc -> priority: 1 
+  Thread -> id: 4a9d0 -> priority: 1 
+Initialize engine version: 5.2.0f3 (e7947df39b5c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1969 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.037 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 2560x1080 60Hz; virtual: 4480x1080 at 0,0
+<RI> Initialized touch support.
+Platform assembly: D:\Works\GitHub\shogi-vagrant\BUILD\0920-0153_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 3466c -> priority: 1 
+  Thread -> id: 34714 -> priority: 1 
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+canceled waiting
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+WWW Ok!: {"user_id":30,"play_id":24,"state":"playing","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at LoginUI.SetLogoutButton (Boolean sw) [0x00000] in <filename unknown>:0 
+  at LoginManager+<LoginToServer>c__AnonStorey4.<>m__2 (System.Collections.Generic.Dictionary`2 dic) [0x00000] in <filename unknown>:0 
+  at ShogiHTTP+<WaitForRequest>c__Iterator2.MoveNext () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Auto Logout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Auto Logout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+

@@ -22,7 +22,10 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		StartCoroutine(WaitForRequest(www, callback));
 	}
 	
-	public void Logout(string url, string play_id, string user_id, OnlyString callback){
+	public void Logout(OnlyString callback){
+		string url = UserInfo.Instance.urlLogging + "users/logout";
+		string play_id = UserInfo.Instance.GetPlayID ().ToString();
+		string user_id = UserInfo.Instance.GetUserID ().ToString ();
 		WWWForm form = new WWWForm();
 		form.AddField("play_id", play_id);
 		form.AddField("user_id", user_id);
@@ -30,10 +33,11 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		StartCoroutine(WaitForRequest(www, callback));
 	}
 	
-	public WWW State(string url, ParsedJSON callback){
+	public void State(ParsedJSON callback){
+		string url = UserInfo.Instance.urlLogging + "plays/"
+					+ UserInfo.Instance.GetPlayID ().ToString () + "/state";
 		WWW www = new WWW (url);
-		StartCoroutine (WaitForRequest (www));
-		return www;
+		StartCoroutine (WaitForRequest (www, callback));
 	}
 
 	public void Player(string url, ParsedJSON callback){
@@ -64,9 +68,19 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 			callback(wwwParsed);
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
+			callback(null);
 		}
 	}
 
+	private IEnumerator WaitForRequest(WWW www, OnlyString callback) {
+		yield return www;
+		if (www.error == null) {
+			Debug.Log("WWW Ok!: " + www.text);
+			callback(www.text);
+		} else {
+			Debug.Log("WWW Error: "+ www.error);
+		}
+	}
 
 	public void Awake()
 	{

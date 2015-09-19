@@ -11,11 +11,9 @@ public class BattleUI : MonoBehaviour {
 
 	public void LogoutFromServerUI(){
 		GameObject.Find ("BtnLogout").SetActive (false);
-		string playID = UserInfo.Instance.GetPlayID ().ToString ();
-		string userID = UserInfo.Instance.GetUserID ().ToString ();
-		StartCoroutine(battleManager.LogoutFromServer (playID, userID));
-		//TODO ここ、処理完了を待ってから次の処理したい、コルーチンでなんとかして
-		StartCoroutine(LoggedOutFromServerUI());
+//		string playID = UserInfo.Instance.GetPlayID ().ToString ();
+//		string userID = UserInfo.Instance.GetUserID ().ToString ();
+		battleManager.LogoutOnBattle ();
 	}
 
 	private IEnumerator LoggedOutFromServerUI(){

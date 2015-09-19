@@ -10,7 +10,8 @@ public class LoginUI : MonoBehaviour {
 	private string buffPlayerName = null;
 	private string buffRoomNumber = null;
 	private string IPaddress = null;
-	
+
+	private GameObject btnLogin,btnLogout;
 	private Text textMsg, textState;
 	private string roomState;
 	
@@ -34,8 +35,11 @@ public class LoginUI : MonoBehaviour {
 	}
 
 	public void SetLoginButton(bool sw){
-		GameObject btnLogin = GameObject.Find ("BtnLogin");
 		btnLogin.SetActive (sw);
+	}
+
+	public void SetLogoutButton(bool sw){
+		btnLogout.SetActive (sw);
 	}
 
 	public void LoginToServerUI(){
@@ -60,30 +64,46 @@ public class LoginUI : MonoBehaviour {
 			// IPアドレス入力があれば、そのアドレスにログイン
 			loginManager.LoginToServer (IPaddress, buffPlayerName, buffRoomNumber);
 		}
-		StartCoroutine(LoggedInToServerUI ());
 	}
 
-	private IEnumerator LoggedInToServerUI(){
-		while (UserInfo.Instance.IsUserDataNull()) {
+	public void LogoutFromServerUI(){
+		Debug.Log("interrupt: logout");
+		SetLogoutButton(false);
+		loginManager.LogoutOnLobby ();
+	}
+
+	public IEnumerator WaitForOpponent(){
+		Debug.Log ("wait for opponent");
+		while (UserInfo.Instance.IsStateDataNULL()){
 			yield return new WaitForEndOfFrame();
 		}
 
 		while(true){
-			roomState = UserInfo.Instance.GetState ();
-			if(roomState == "" || roomState == null){
-				yield return StartCoroutine (loginManager.GetRoomState());
-				Debug.Log("state waiting but null");
+			if(UserInfo.Instance.IsUserDataNull()){
+				Debug.Log("canceled matching");
+				textState.text = "";
+				yield break;
+			}
+			loginManager.FetchRoomState();
+			roomState = UserInfo.Instance.GetState().ToString();
+
+			if(roomState == "exit"){
+				Debug.Log("exit");
+				yield break;
+			}
+			else if(roomState == "" || roomState == null){
+				Debug.Log("state waiting but userinfo is null");
+				yield return new WaitForSeconds(1);
 				continue;
 			}
 			else if(roomState == "waiting"){
-				yield return StartCoroutine (loginManager.GetRoomState());
 				textState.text = "waiting opponent...";
 				Debug.Log("state waiting");
+				yield return new WaitForSeconds(1);
 				continue;
 			}
-			else{
-				break;
-			}
+			Debug.Log("move to battle scene");
+			break;
 		}
 
 		Application.LoadLevel("Room");
@@ -92,12 +112,13 @@ public class LoginUI : MonoBehaviour {
 	void Start () {
 		loginManager = GameObject.Find("LoginManager").GetComponent<LoginManager>();
 
+		btnLogin = GameObject.Find ("BtnLogin");
+		btnLogout = GameObject.Find ("BtnLogout");
+		SetLogoutButton (false);
+
 		textMsg = GameObject.Find ("MsgText").GetComponent<Text> ();
 		textMsg.text = "Fill text above.";
 
 		textState = GameObject.Find ("StateText").GetComponent<Text> ();
-	}
-	
-	void Update () {
 	}
 }

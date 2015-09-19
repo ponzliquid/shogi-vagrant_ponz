@@ -7,17 +7,18 @@ public class BattleManager : MonoBehaviour {
 	private GameObject objPieceAllocator;
 	private GameObject objBattleUI;
 
-	public IEnumerator LogoutFromServer(string playID, string userID){
+	public void LogoutOnBattle(){
+		if (UserInfo.Instance.IsUserDataNull ()) {
+			return;
+		}
 		
-		string logoutURL = UserInfo.Instance.urlLogging + "users/logout";
-		
-		userID = UserInfo.Instance.GetUserID ().ToString();
-		playID = UserInfo.Instance.GetPlayID ().ToString();
-		WWW www;
-		www = ShogiHTTP.Instance.Logout (logoutURL, playID, userID);
-		Debug.Log ("Logging out...");
-		yield return www;
-		UserInfo.Instance.InitUserData ();
+		ShogiHTTP.Instance.Logout ((string www) => {
+			if(www == "[\"true\"]"){
+				Debug.Log ("Success Logout");
+				UserInfo.Instance.InitUserData ();
+				Application.LoadLevel("Lobby");
+			}
+		});
 	}
 
 	public void SetPlayerInfo(Dictionary<string, object> dicPlayerInfo){
