@@ -65,6 +65,7 @@ public class BattleManager : MonoBehaviour {
 
 			CreateScriptComponent.Create("PieceAllocator");
 			CreateScriptComponent.Create("BattleUI");
+			CreateScriptComponent.Create("BoardUI");
 
 			// TODO 常に勝者を確認する
 //			StartCoroutine(UpdateWinner());

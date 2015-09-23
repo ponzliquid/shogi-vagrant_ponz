@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PieceSubject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class PieceSubject : MonoBehaviour, IPointerEnterHandler {
 
 	private const string PATH_SPRITE_PIECE_64 = "Koma";
 	private const float POSX_DEF = 200f, POSY_DEF = 200;
@@ -12,6 +12,7 @@ public class PieceSubject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	private bool amIPlayer = false;
 	private bool isMyTurn = false;
 	private bool isMyPiece = false;
+	private Button btn;
 
 	// execute on instantiating
 	public static PieceSubject Instantiate(PieceSubject prefab, Dictionary<string, object> dic){
@@ -61,22 +62,8 @@ public class PieceSubject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 //		this.transform.position = mousePointInWorld;
 //	}
 
-	void IBeginDragHandler.OnBeginDrag(PointerEventData e){
-		RectTransform rectTrans = this.GetComponent<RectTransform>();
-		rectTrans.SetAsFirstSibling();
-	}
-
-	void IDragHandler.OnDrag(PointerEventData ped){
-		ped.position = new Vector2 (ped.position.x - POSX_DEF, ped.position.y - POSY_DEF);
-		Debug.Log("ped position="+ped.position);
-		RectTransform rectTrans = this.GetComponent<RectTransform>();
-		rectTrans.localPosition = new Vector3(ped.position.x, ped.position.y,0);
-		Debug.Log("rect position="+rectTrans.localPosition);
-	}
-
-	void IEndDragHandler.OnEndDrag(PointerEventData e){
-		RectTransform rectTrans = this.GetComponent<RectTransform>();
-		rectTrans.SetAsLastSibling();
+	void OnPointerEnter(){
+		Debug.Log ("OnPointerEnter");
 	}
 
 	void Awake(){
@@ -84,5 +71,9 @@ public class PieceSubject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			amIPlayer = true;
 			// 関数飛ばす
 		}
+	}
+
+	void Start(){
+		btn = this.GetComponent<Button>();
 	}
 }
