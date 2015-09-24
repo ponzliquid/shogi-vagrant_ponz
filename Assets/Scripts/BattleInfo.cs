@@ -6,9 +6,18 @@ public class BattleInfo : SingletonMonoBehaviour<BattleInfo> {
 
 	public Dictionary<string, object> infoFirstPlayer{ get; private set;}
 	public Dictionary<string, object> infoLastPlayer { get; private set;}
+	public Dictionary<string, object> infoPlay { get; private set;}
 
 	public bool IsPlayerInfoNull(){
 		if(infoFirstPlayer == null || infoLastPlayer == null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public bool IsPlayInfoNull(){
+		if(infoPlay == null){
 			return true;
 		}else{
 			return false;
@@ -23,6 +32,11 @@ public class BattleInfo : SingletonMonoBehaviour<BattleInfo> {
 	public void SetLastPlayerInfo(Dictionary<string, object> info){
 		infoLastPlayer = null;
 		infoLastPlayer = info;
+	}
+
+	public void SetPlayInfo(Dictionary<string, object> info){
+		infoPlay = null;
+		infoPlay = info;
 	}
 
 	void Awake(){

@@ -45,6 +45,11 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		StartCoroutine (WaitForRequest (new WWW(url), callback));
 	}
 
+	public void Play(string url, ParsedJSON callback){
+		url = url + "plays/" + UserInfo.Instance.GetPlayID ().ToString ();
+		StartCoroutine (WaitForRequest(new WWW(url), callback));
+	}
+
 	public void Pieces(string url, ParsedJSON callback){
 		url = url + "plays/" + UserInfo.Instance.GetPlayID ().ToString () + "/pieces";
 		StartCoroutine (WaitForRequest(new WWW(url), callback));

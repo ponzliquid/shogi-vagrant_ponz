@@ -4,29 +4,44 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PieceAllocator : MonoBehaviour {
+public class PieceAllocator : SingletonMonoBehaviour<PieceAllocator> {
 
 	public PieceSubject prfbPiece;
+
 	private float perSec = 1.0f;
 	private float timer;
 
-	private void SetPieceLocation(){
+//	private void InstantiatePieceObject(int id, Dictionary<string, object> dic){
+//		GameObject obj = Instantiate (prfbPiece) as GameObject;
+//		obj.GetComponent<PieceSubject> ().SetPieceID (id);
+//		obj.GetComponent<PieceSubject> ().SetPieceInfo (dic);
+//	}
+
+	private void InstantiatePieces(){
 		ShogiHTTP.Instance.Pieces(UserInfo.Instance.urlLogging, 
 		                          (Dictionary<string, object> dicPieces) => {
 			foreach(KeyValuePair<string, object> pair in dicPieces){
 				Dictionary<string, object> dicChild = pair.Value as Dictionary<string, object>;
 				// 取得情報に基づき駒を生成
-				PieceSubject.Instantiate(prfbPiece, int.Parse(pair.Key), dicChild);
+//				PieceSubject.Instantiate(prfbPiece, int.Parse(pair.Key), dicChild);
+				int pieceID = int.Parse(pair.Key.ToString());
+//				InstantiatePieceObject(pieceID, dicChild);.
+				var obj = Instantiate (prfbPiece);
+				PieceSubject subj = obj.GetComponent<PieceSubject>();
+				subj.SetPieceID(pieceID);
+				subj.SetPieceInfo(dicChild);
+				subj.Init();
 			}
 		});
 	}
 
-	private void FetchPieceLocation(){
+	private void UpdatePieces(){
 		ShogiHTTP.Instance.Pieces(UserInfo.Instance.urlLogging, 
 		                          (Dictionary<string, object> dicPieces) => {
 			foreach(KeyValuePair<string, object> pair in dicPieces){
 				Dictionary<string, object> dicChild = pair.Value as Dictionary<string, object>;
 				int pieceID = int.Parse(pair.Key.ToString());
+				Debug.Log("update pieces");
 				ExecuteEvents.Execute<IRecieveMessage>(
 					target: gameObject,
 					eventData: null,
@@ -46,19 +61,25 @@ public class PieceAllocator : MonoBehaviour {
 	private void DoOnEverySecond(){
 		timer -= Time.deltaTime;
 		if (timer <= 0.0f) {
-			FetchPieceLocation ();
+			UpdatePieces ();
+			// ほか、毎秒行いたい処理をここに
+			resetTimer();
 		}
 	}
 
 	void Start(){
 		prfbPiece = Resources.Load<PieceSubject>("Prefabs/Piece");
-		SetPieceLocation ();
+		InstantiatePieces ();
 		resetTimer ();
 	}
 
 	void Update(){
-
-		if(false/*相手のターンなら*/){
+		if(BattleInfo.Instance.IsPlayInfoNull()){
+//			new WaitForEndOfFrame();
+			return;
+		}
+		if(BattleInfo.Instance.infoPlay["turn_player"].ToString()
+		   != UserInfo.Instance.GetUserID().ToString()){
 			DoOnEverySecond ();
 		}
 	}
