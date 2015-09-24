@@ -22,7 +22,6 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	public void SetPlayerInfo(Dictionary<string, object> dicPlayerInfo){
-		// TODO まだShogiHTTPには完全なURLを送っている
 		foreach(KeyValuePair<string, object> pair in dicPlayerInfo){
 			Dictionary<string, object> dic = pair.Value as Dictionary<string, object>;
 			if(pair.Key.ToString() == "first_player"){
