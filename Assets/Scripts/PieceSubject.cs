@@ -26,7 +26,7 @@ public class PieceSubject : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		return Vector3.zero;
 	}
 
-	protected virtual void ReqRememberSelectedPiece(){
+	protected void ReqRememberSelectedPiece(){
 		// TODO 待ち状態なので自分の座標をBoardClockに送る
 		ExecuteEvents.Execute<IRecieveMessage>(
 			target: gameObject,

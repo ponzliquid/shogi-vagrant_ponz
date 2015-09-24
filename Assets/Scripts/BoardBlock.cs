@@ -9,6 +9,8 @@ public class BoardBlock : MonoBehaviour, IRecieveMessage,
 	private Vector3 vec3;
 	private Vector3 clickedPosOnPiece;
 
+
+
 	public void RecvUpdatePiecePos(int a, Dictionary<string, object> d){}
 
 	public void RecvRememberSelectedPiece(Vector3 v){
@@ -28,9 +30,9 @@ public class BoardBlock : MonoBehaviour, IRecieveMessage,
 		Debug.Log ("Block: clicked on pos; " + vec3);
 
 		ExecuteEvents.Execute<IRecieveMessage>(
-			target: gameObject,
-			eventData: null,
-			functor: (recieveTarget,y)=>recieveTarget.RecvMoveToDestination(vec3));
+			gameObject,
+			null,
+			(recieveTarget,y)=>recieveTarget.RecvMoveToDestination(vec3));
 
 		SendMessage("RecvMoveToDestination", vec3);
 	}
@@ -41,5 +43,6 @@ public class BoardBlock : MonoBehaviour, IRecieveMessage,
 
 	void Start(){
 		vec3 = this.GetComponent<RectTransform> ().localPosition;
+
 	}
 }
