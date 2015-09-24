@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class UserInfo : SingletonMonoBehaviour<UserInfo> {
 
-	// TODO セッター用意しなくてよくね？
 	public string urlLogging { get; private set;}
 	public string playerName { get; private set;}
 	private Dictionary<string,object> userData = null;

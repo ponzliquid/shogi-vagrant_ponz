@@ -3410,3 +3410,69 @@ UnloadTime: 1.817272 ms
 Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 309.
 Total: 1.343332 ms (FindLiveObjects: 0.062789 ms CreateObjectMapping: 0.048299 ms MarkObjects: 1.168548 ms  DeleteObjects: 0.061883 ms)
 
+Logging in by local address...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+WWW Ok!: {"user_id":67,"play_id":31,"state":"playing","role":"player"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+set state
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+wait for opponent
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+move to battle scene
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.420310 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 262.
+Total: 0.530088 ms (FindLiveObjects: 0.031394 ms CreateObjectMapping: 0.013886 ms MarkObjects: 0.470921 ms  DeleteObjects: 0.012980 ms)
+
+WWW Ok!: {"state":"playing"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+set state
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+WWW Ok!: {"state":"playing"}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+set state
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+WWW Ok!: {"first_player":{"user_id":67,"name":"b"},"last_player":{"user_id":66,"name":"p"}}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+67
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+seting battle info: last
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+先手
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+WWW Ok!: {"1":{"name":"fu","posx":9,"posy":7,"owner":67,"promote":false},"2":{"name":"fu","posx":8,"posy":7,"owner":67,"promote":false},"3":{"name":"fu","posx":7,"posy":7,"owner":67,"promote":false},"4":{"name":"fu","posx":6,"posy":7,"owner":67,"promote":false},"5":{"name":"fu","posx":5,"posy":7,"owner":67,"promote":false},"6":{"name":"fu","posx":4,"posy":7,"owner":67,"promote":false},"7":{"name":"fu","posx":3,"posy":7,"owner":67,"promote":false},"8":{"name":"fu","posx":2,"posy":7,"owner":67,"promote":false},"9":{"name":"fu","posx":1,"posy":7,"owner":67,"promote":false},"10":{"name":"fu","posx":1,"posy":3,"owner":66,"promote":false},"11":{"name":"fu","posx":2,"posy":3,"owner":66,"promote":false},"12":{"name":"fu","posx":3,"posy":3,"owner":66,"promote":false},"13":{"name":"fu","posx":4,"posy":3,"owner":66,"promote":false},"14":{"name":"fu","posx":5,"posy":3,"owner":66,"promote":false},"15":{"name":"fu","posx":6,"posy":3,"owner":66,"promote":false},"16":{"name":"fu","posx":7,"posy":3,"owner":66,"promote":false},"17":{"name":"fu","posx":8,"posy":3,"owner":66,"promote":false},"18":{"name":"fu","posx":9,"posy":3,"owner":66,"promote":false},"19":{"name":"kyosha","posx":9,"posy":9,"owner":67,"promote":false},"20":{"name":"kyosha","posx":1,"posy":9,"owner":67,"promote":false},"21":{"name":"kyosha","posx":1,"posy":1,"owner":66,"promote":false},"22":{"name":"kyosha","posx":9,"posy":1,"owner":66,"promote":false},"23":{"name":"keima","posx":8,"posy":9,"owner":67,"promote":false},"24":{"name":"keima","posx":2,"posy":9,"owner":67,"promote":false},"25":{"name":"keima","posx":2,"posy":1,"owner":66,"promote":false},"26":{"name":"keima","posx":8,"posy":1,"owner":66,"promote":false},"27":{"name":"gin","posx":7,"posy":9,"owner":67,"promote":false},"28":{"name":"gin","posx":3,"posy":9,"owner":67,"promote":false},"29":{"name":"gin","posx":3,"posy":1,"owner":66,"promote":false},"30":{"name":"gin","posx":7,"posy":1,"owner":66,"promote":false},"31":{"name":"kin","posx":6,"posy":9,"owner":67,"promote":false},"32":{"name":"kin","posx":4,"posy":9,"owner":67,"promote":false},"33":{"name":"kin","posx":4,"posy":1,"owner":66,"promote":false},"34":{"name":"kin","posx":6,"posy":1,"owner":66,"promote":false},"35":{"name":"hisha","posx":2,"posy":8,"owner":67,"promote":false},"36":{"name":"hisha","posx":8,"posy":2,"owner":66,"promote":false},"37":{"name":"kaku","posx":8,"posy":8,"owner":67,"promote":false},"38":{"name":"kaku","posx":2,"posy":2,"owner":66,"promote":false},"39":{"name":"oh","posx":5,"posy":9,"owner":67,"promote":false},"40":{"name":"oh","posx":5,"posy":1,"owner":66,"promote":false}}
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Auto Logout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+

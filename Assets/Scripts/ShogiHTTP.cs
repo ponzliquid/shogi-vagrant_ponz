@@ -33,6 +33,25 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		StartCoroutine(WaitForRequest(www, callback));
 	}
 	
+	public void UpdatePieces(string url, int pID, Dictionary<string, object> dic, ParsedJSON callback){
+		string play_id = BattleInfo.Instance.infoPlay ["play_id"].ToString ();
+		string user_id = UserInfo.Instance.GetUserID ().ToString ();
+		string move_id = pID.ToString();
+		string posx = dic ["posx"].ToString ();
+		string posy = dic ["posy"].ToString ();
+		string promote = dic ["promote"].ToString ();
+
+		WWWForm form = new WWWForm();
+		form.AddField("play_id", play_id);
+		form.AddField("user_id", user_id);
+		form.AddField("move_id", move_id);
+		form.AddField("posx", posx);
+		form.AddField("posy", posy);
+		form.AddField("promote", promote);
+		WWW www = new WWW(url, form);
+		StartCoroutine(WaitForRequest(www, callback));
+	}
+	
 	public void State(ParsedJSON callback){
 		string url = UserInfo.Instance.urlLogging + "plays/"
 					+ UserInfo.Instance.GetPlayID ().ToString () + "/state";
@@ -54,6 +73,7 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 		url = url + "plays/" + UserInfo.Instance.GetPlayID ().ToString () + "/pieces";
 		StartCoroutine (WaitForRequest(new WWW(url), callback));
 	}
+
 
 	private IEnumerator WaitForRequest(WWW www) {
 		yield return www;

@@ -4,52 +4,53 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PieceSubject : MonoBehaviour, IRecieveMessage{
+public class PieceSubject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
+							IPointerClickHandler, IRecieveMessage{
 
 	private const string PATH_SPRITE_PIECE_64 = "Koma";
+	private const string PATH_SPRITE_PIECE_32 = "30x32";
 	private const float POSX_DEF = 200f, POSY_DEF = 200;
 	private const float WIDTH_PIECE_DEF = 50f;
-	private Dictionary<string, object> dicPieceInfo;
+
+	protected Dictionary<string, object> dicPieceInfo;
+	private Sprite sprSmall, sprBig;
 	private RectTransform rectTrans;
 	private int myPieceID;
-	private int posXOriginal, posYOriginal;
 	private bool amIPlayer = false;
 	private bool isMyTurn = false;
 	private bool isMyPiece = false;
-	private bool isAllowedToSelect = false;
 	private bool isWaitingToDestinationSelect = false;
 
-	// execute on instantiating
-//	public static PieceSubject Instantiate(PieceSubject prefab, int pieceID, Dictionary<string, object> dic){
-//		PieceSubject obj = Instantiate(prefab) as PieceSubject;
-//
-//		this.myPieceID = pieceID;
-//		this.posXOriginal = int.Parse(dic["posx"].ToString());
-//		this.posYOriginal = int.Parse(dic["posy"].ToString());
-//
-//		Transform canvasObj = GameObject.Find("Canvas").GetComponent<Transform>();
-//		obj.transform.SetParent (canvasObj,false);
-//
-//		Sprite spr = Resources.Load<Sprite>(PATH_SPRITE_PIECE_64 + "/" + dic["name"].ToString());
-//		obj.GetComponent<Image> ().overrideSprite = spr;
-//
-//		obj.name = dic["name"].ToString();
-//
-//		RectTransform rectTransOnInstance = obj.GetComponent<RectTransform> ();
-//		float buffX = POSX_DEF - WIDTH_PIECE_DEF * (float.Parse(dic ["posx"].ToString()) - 1f);
-//		float buffY = POSX_DEF - WIDTH_PIECE_DEF * (float.Parse(dic ["posy"].ToString()) - 1f);
-//		rectTransOnInstance.localPosition = new Vector3(buffX, buffY,0);
-//
-//		if (dic ["owner"].ToString () == BattleInfo.Instance.infoLastPlayer["user_id"].ToString()) {
-//			rectTransOnInstance.rotation = Quaternion.Euler (0, 0, 180);
-//		}
-//		return obj;
-//	}
+	protected virtual Vector3 CalcDestination (){
+		// TODO すべての移動先の計算
+		return Vector3.zero;
+	}
+
+	protected virtual void ReqRememberSelectedPiece(){
+		// TODO 待ち状態なので自分の座標をBoardClockに送る
+	}
+
+	private bool IsAccessible(){
+		if(amIPlayer && isMyTurn && isMyPiece){
+			return true;
+		}
+		return false;
+	}
+
+	private void ShrinkSprite(){
+
+		this.GetComponent<Image> ().overrideSprite = sprSmall;
+	}
+
+	private void ExpandSprite(){
+
+		this.GetComponent<Image> ().overrideSprite = sprBig;
+	}
 
 	public void SetPieceID(int id){
 		myPieceID = id;
 	}
-	
+
 	public void SetPieceInfo(Dictionary<string, object> dic){
 		dicPieceInfo = dic;	
 	}
@@ -61,7 +62,39 @@ public class PieceSubject : MonoBehaviour, IRecieveMessage{
 		return vec3;
 	}
 
-	public void UpdatePiecePosition(int sentID, Dictionary<string, object> dic){
+	public void Init(){
+		if (UserInfo.Instance.GetUserRole ().ToString () == "player") {
+			amIPlayer = true;
+		}
+
+		Transform canvasObj = GameObject.Find("Canvas").GetComponent<Transform>();
+		this.transform.SetParent (canvasObj,false);
+
+		sprSmall = Resources.Load<Sprite>(PATH_SPRITE_PIECE_32 + "/" + dicPieceInfo["name"].ToString());
+		sprBig = Resources.Load<Sprite>(PATH_SPRITE_PIECE_64 + "/" + dicPieceInfo["name"].ToString());
+		ExpandSprite ();
+
+		this.name = dicPieceInfo["name"].ToString();
+		rectTrans = this.GetComponent<RectTransform> ();
+		rectTrans.localPosition = ConvertOriginalPosToLocalPos (dicPieceInfo);
+
+		if (dicPieceInfo ["owner"].ToString () == BattleInfo.Instance.infoLastPlayer["user_id"].ToString()) {
+			rectTrans.rotation = Quaternion.Euler (0, 0, 180);
+		}
+	}
+
+	// following: EventTriger -----------------------------------------------------------
+	protected virtual void ReqShowDestination(){
+		// TODO 計算した移動先すべてを全BoardBlockにインヴォケーション
+	}
+
+	protected virtual void ReqUnshowDestination(){
+		// TODO ReqShowDestination()の取り消し
+	}
+
+	// following: EventListener -----------------------------------------------------------
+
+	public void RecvUpdatePiecePos(int sentID, Dictionary<string, object> dic){
 		// IDが自分のものか
 		// dicから座標をとってくる
 		// それをConvertOriginalPosToLocalPos()へ
@@ -73,32 +106,50 @@ public class PieceSubject : MonoBehaviour, IRecieveMessage{
 		Debug.Log ("update position");
 	}
 
-	public void Init(){
-		Transform canvasObj = GameObject.Find("Canvas").GetComponent<Transform>();
-		this.transform.SetParent (canvasObj,false);
+	public void RecvShowDestination(Vector3 vec3){}
+	public void RecvUnshowDestination(){}
 
-		Sprite spr = Resources.Load<Sprite>(PATH_SPRITE_PIECE_64 + "/" + dicPieceInfo["name"].ToString());
-		this.GetComponent<Image> ().overrideSprite = spr;
-
-		this.name = dicPieceInfo["name"].ToString();
-		rectTrans = this.GetComponent<RectTransform> ();
-		rectTrans.localPosition = ConvertOriginalPosToLocalPos (dicPieceInfo);
-
-		if (dicPieceInfo ["owner"].ToString () == BattleInfo.Instance.infoLastPlayer["user_id"].ToString()) {
-			rectTrans.rotation = Quaternion.Euler (0, 0, 180);
+	public void RecvMoveToDestination(){
+		// TODO Blockから送られてきた移動先に移動
+	}
+	
+	public void OnPointerEnter(PointerEventData ev){
+		if (!IsAccessible ()){
+			return;
 		}
+		CalcDestination ();
+		ReqShowDestination ();
+		ShrinkSprite ();
+	}
+	
+	public void OnPointerExit(PointerEventData ev){
+		if (!IsAccessible ()){
+			return;
+		}
+		ReqUnshowDestination ();
+		ExpandSprite ();
+	}
+	
+	public void OnPointerClick(PointerEventData ev){
+		if (!IsAccessible ()){
+			return;
+		}
+		ExpandSprite ();
+		ReqRememberSelectedPiece ();
 	}
 
-	void Awake(){
-		if (UserInfo.Instance.GetUserRole ().ToString () == "player") {
-			amIPlayer = true;
+	void Update(){
+		if (dicPieceInfo ["owner"].ToString () == UserInfo.Instance.GetUserID ().ToString ()) {
+			isMyPiece = true;
+		} else {
+			isMyPiece = false;
 		}
-		//ほか、駒のメタ情報を登録
-	}
 
-	void Start(){
-//		rectTrans = this.GetComponent<RectTransform> ();
-		Debug.Log ("recttrans");
-//		Init ();
+		if (BattleInfo.Instance.infoPlay ["turn_player"].ToString ()
+			== UserInfo.Instance.GetUserID ().ToString ()) {
+			isMyTurn = true;
+		} else {
+			isMyTurn = false;
+		}
 	}
 }

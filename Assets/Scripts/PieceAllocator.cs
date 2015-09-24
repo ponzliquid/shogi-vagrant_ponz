@@ -11,12 +11,6 @@ public class PieceAllocator : SingletonMonoBehaviour<PieceAllocator> {
 	private float perSec = 1.0f;
 	private float timer;
 
-//	private void InstantiatePieceObject(int id, Dictionary<string, object> dic){
-//		GameObject obj = Instantiate (prfbPiece) as GameObject;
-//		obj.GetComponent<PieceSubject> ().SetPieceID (id);
-//		obj.GetComponent<PieceSubject> ().SetPieceInfo (dic);
-//	}
-
 	private void InstantiatePieces(){
 		ShogiHTTP.Instance.Pieces(UserInfo.Instance.urlLogging, 
 		                          (Dictionary<string, object> dicPieces) => {
@@ -35,7 +29,7 @@ public class PieceAllocator : SingletonMonoBehaviour<PieceAllocator> {
 		});
 	}
 
-	private void UpdatePieces(){
+	private void ReqUpdatePieces(){
 		ShogiHTTP.Instance.Pieces(UserInfo.Instance.urlLogging, 
 		                          (Dictionary<string, object> dicPieces) => {
 			foreach(KeyValuePair<string, object> pair in dicPieces){
@@ -45,7 +39,7 @@ public class PieceAllocator : SingletonMonoBehaviour<PieceAllocator> {
 				ExecuteEvents.Execute<IRecieveMessage>(
 					target: gameObject,
 					eventData: null,
-					functor: (recieveTarget,y)=>recieveTarget.UpdatePiecePosition(pieceID, dicChild));
+					functor: (recieveTarget,y)=>recieveTarget.RecvUpdatePiecePos(pieceID, dicChild));
 			}
 		});
 		// piece.jsonを取得
@@ -61,7 +55,7 @@ public class PieceAllocator : SingletonMonoBehaviour<PieceAllocator> {
 	private void DoOnEverySecond(){
 		timer -= Time.deltaTime;
 		if (timer <= 0.0f) {
-			UpdatePieces ();
+			ReqUpdatePieces ();
 			// ほか、毎秒行いたい処理をここに
 			resetTimer();
 		}
