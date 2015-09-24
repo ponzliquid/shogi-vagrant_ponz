@@ -8,7 +8,11 @@ public interface IRecieveMessage : IEventSystemHandler {
 
 	void RecvUpdatePiecePos(int a, Dictionary<string, object> d);
 
+	void RecvRememberSelectedPiece(Vector3 v);
+
 	void RecvShowDestination(Vector3 v);
 
 	void RecvUnshowDestination();
+
+	void RecvMoveToDestination (Vector3 v);
 }
