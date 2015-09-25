@@ -39,3 +39,6 @@ Thumbs.db
 # -------------[ Build ]------------------------ #
 *.html
 *.unity3d
+
+BUILD/
+Library/
