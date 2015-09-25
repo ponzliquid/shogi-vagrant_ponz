@@ -6,6 +6,8 @@ public class BattleManager : MonoBehaviour {
 
 	private GameObject objPieceAllocator;
 	private GameObject objBattleUI;
+	
+	private GameObject objClickedPiece;
 
 	private float perSec = 1.0f;
 	private float timer;
@@ -36,6 +38,15 @@ public class BattleManager : MonoBehaviour {
 				Debug.Log ("seting battle info: last");
 			}
 		}
+	}
+
+	public void RememberClickedPiece(GameObject obj){
+		objClickedPiece = obj;
+	}
+
+	public void MovePieceToThisPos(Vector3 vec3){
+		RectTransform rect = objClickedPiece.GetComponent<RectTransform> ();
+		rect.localPosition = vec3;
 	}
 
 	private void AdjustAnglesOfUI(){

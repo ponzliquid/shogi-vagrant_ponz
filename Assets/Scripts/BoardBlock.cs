@@ -7,9 +7,9 @@ public class BoardBlock : MonoBehaviour, IRecieveMessage,
 							IPointerClickHandler{
 
 	private Vector3 vec3;
+
 	private Vector3 clickedPosOnPiece;
-
-
+	private BattleManager battleManager;
 
 	public void RecvUpdatePiecePos(int a, Dictionary<string, object> d){}
 
@@ -35,6 +35,8 @@ public class BoardBlock : MonoBehaviour, IRecieveMessage,
 			(recieveTarget,y)=>recieveTarget.RecvMoveToDestination(vec3));
 
 		SendMessage("RecvMoveToDestination", vec3);
+
+		battleManager.MovePieceToThisPos (vec3);
 	}
 
 	public void RecvMoveToDestination (Vector3 v){
@@ -44,5 +46,6 @@ public class BoardBlock : MonoBehaviour, IRecieveMessage,
 	void Start(){
 		vec3 = this.GetComponent<RectTransform> ().localPosition;
 
+		battleManager = GameObject.Find ("BattleManager").GetComponent<BattleManager> ();
 	}
 }

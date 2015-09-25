@@ -12,6 +12,8 @@ public class PieceSubject : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	private const float POSX_DEF = 200f, POSY_DEF = 200;
 	private const float WIDTH_PIECE_DEF = 50f;
 
+	private BattleManager battleManager;
+
 	protected Dictionary<string, object> dicPieceInfo;
 	private Sprite sprSmall, sprBig;
 	private RectTransform rectTrans;
@@ -160,6 +162,8 @@ public class PieceSubject : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		Debug.Log ("OnPointerClick: " + dicPieceInfo["name"].ToString());
 		ExpandSprite ();
 		ReqRememberSelectedPiece ();
+
+		battleManager.RememberClickedPiece (this.gameObject);
 	}
 
 	void Start(){
@@ -168,6 +172,8 @@ public class PieceSubject : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		} else {
 			isMyPiece = false;
 		}
+
+		battleManager = GameObject.Find ("BattleManager").GetComponent<BattleManager> ();
 	}
 
 	void Update(){
