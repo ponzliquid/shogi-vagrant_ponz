@@ -69,7 +69,7 @@ public class BattleManager : MonoBehaviour {
 			AdjustAnglesOfUI();
 
 			CreateScriptComponent.Create("PieceAllocator");
-			CreateScriptComponent.Create("BattleUI");
+//			CreateScriptComponent.Create("BattleUI");
 //			CreateScriptComponent.Create("BoardUI");
 		});
 	}
@@ -83,7 +83,7 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	public void SendUpdatePiece(int movedPieceID, Dictionary<string, object> dic){
-
+		Debug.Log("ready to update piece move");
 		ShogiHTTP.Instance.UpdatePieces(UserInfo.Instance.urlLogging, 
 		                                movedPieceID,
 		                                dic, 
@@ -119,10 +119,11 @@ public class BattleManager : MonoBehaviour {
 		if(BattleInfo.Instance.IsPlayInfoNull()){
 			return;
 		}
-		if(BattleInfo.Instance.infoPlay["turn_player"].ToString()
-		   != UserInfo.Instance.GetUserID().ToString()){
-			DoOnEverySecond ();
-		}
+//		if(BattleInfo.Instance.infoPlay["turn_player"].ToString()
+//		   != UserInfo.Instance.GetUserID().ToString()){
+//			UpdatePlayInfo ();
+		UpdatePlayInfo ();
+//		}
 		// TODO 常に勝者を確認せよ
 	}
 }

@@ -34,7 +34,7 @@ public class ShogiHTTP : SingletonMonoBehaviour<ShogiHTTP> {
 	}
 	
 	public void UpdatePieces(string url, int pID, Dictionary<string, object> dic, ParsedJSON callback){
-		string play_id = BattleInfo.Instance.infoPlay ["play_id"].ToString ();
+		string play_id = UserInfo.Instance.GetPlayID().ToString ();
 		string user_id = UserInfo.Instance.GetUserID ().ToString ();
 		string move_id = pID.ToString();
 		string posx = dic ["posx"].ToString ();

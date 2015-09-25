@@ -78,6 +78,9 @@ public class PieceAllocator : SingletonMonoBehaviour<PieceAllocator> {
 			Debug.Log("opponent turn");
 			DoOnEverySecond ();
 		}
-		Debug.Log ("my turn");
+		else{
+			Debug.Log ("my turn");
+		}
+
 	}
 }
