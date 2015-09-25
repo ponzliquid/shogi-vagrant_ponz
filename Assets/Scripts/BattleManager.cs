@@ -84,9 +84,7 @@ public class BattleManager : MonoBehaviour {
 
 	public void SendUpdatePiece(int movedPieceID, Dictionary<string, object> dic){
 		Debug.Log("ready to update piece move");
-		ShogiHTTP.Instance.UpdatePieces(UserInfo.Instance.urlLogging, 
-		                                movedPieceID,
-		                                dic, 
+		ShogiHTTP.Instance.UpdatePieces(movedPieceID, dic, 
 		                                (Dictionary<string, object> dicRecv) => {
 			Debug.Log("updated piece moving");
 			UpdatePlayInfo();
