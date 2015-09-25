@@ -132,7 +132,21 @@ public class PieceSubject : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		// TODO Blockから送られてきた移動先に移動
 		Debug.Log ("move position to : " + v);
 		rectTrans.localPosition = v;
+
+//		SendUpdatePiece();
+		isMyTurn = false;
+		battleManager.SendUpdatePiece (myPieceID, dicPieceInfo);
 	}
+
+//	public void SendUpdatePiece(){
+//		isMyTurn = false;
+//		ShogiHTTP.Instance.UpdatePieces(UserInfo.Instance.urlLogging, 
+//		                                myPieceID,
+//		                                dicPieceInfo, 
+//		                                (Dictionary<string, object> dicRecv) => {
+//		 	Debug.Log("updated piece moving");
+//		}); 
+//	}
 	
 	public void OnPointerEnter(PointerEventData ev){
 		if (!IsAccessible ()){

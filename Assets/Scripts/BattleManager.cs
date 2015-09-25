@@ -45,8 +45,10 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	public void MovePieceToThisPos(Vector3 vec3){
-		RectTransform rect = objClickedPiece.GetComponent<RectTransform> ();
-		rect.localPosition = vec3;
+//		RectTransform rect = objClickedPiece.GetComponent<RectTransform> ();
+//		rect.localPosition = vec3;
+		PieceSubject pSubj = objClickedPiece.GetComponent<PieceSubject> ();
+		pSubj.RecvMoveToDestination (vec3);
 	}
 
 	private void AdjustAnglesOfUI(){
@@ -78,6 +80,17 @@ public class BattleManager : MonoBehaviour {
 			BattleInfo.Instance.SetPlayInfo(dicPlayerInfo);
 			Debug.Log ("update play info");
 		});
+	}
+
+	public void SendUpdatePiece(int movedPieceID, Dictionary<string, object> dic){
+
+		ShogiHTTP.Instance.UpdatePieces(UserInfo.Instance.urlLogging, 
+		                                movedPieceID,
+		                                dic, 
+		                                (Dictionary<string, object> dicRecv) => {
+			Debug.Log("updated piece moving");
+			UpdatePlayInfo();
+		}); 
 	}
 
 	private void resetTimer(){

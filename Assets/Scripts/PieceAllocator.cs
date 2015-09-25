@@ -36,10 +36,11 @@ public class PieceAllocator : SingletonMonoBehaviour<PieceAllocator> {
 				Dictionary<string, object> dicChild = pair.Value as Dictionary<string, object>;
 				int pieceID = int.Parse(pair.Key.ToString());
 				Debug.Log("update pieces");
+				GameObject obj = GameObject.Find(dicChild["name"].ToString());
 				ExecuteEvents.Execute<IRecieveMessage>(
-					target: gameObject,
+					target: obj,
 					eventData: null,
-					functor: (recieveTarget,y)=>recieveTarget.RecvUpdatePiecePos(pieceID, dicChild));
+					functor: (x,y)=>x.RecvUpdatePiecePos(pieceID, dicChild));
 			}
 		});
 		// piece.jsonを取得
@@ -74,7 +75,9 @@ public class PieceAllocator : SingletonMonoBehaviour<PieceAllocator> {
 		}
 		if(BattleInfo.Instance.infoPlay["turn_player"].ToString()
 		   != UserInfo.Instance.GetUserID().ToString()){
+			Debug.Log("opponent turn");
 			DoOnEverySecond ();
 		}
+		Debug.Log ("my turn");
 	}
 }
